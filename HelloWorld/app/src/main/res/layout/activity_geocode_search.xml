@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_geocode_search"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal">
+        <TextView
+            android:text="地址："
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/address"
+            android:text="信雅达大厦"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/parse"
+            android:text="解析"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal">
+        <TextView
+            android:text="经度："
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/lng"
+            android:text="113.396"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:text="纬度："
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="8dp"/>
+        <EditText
+            android:id="@+id/lat"
+            android:text="23.126"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/reverse"
+            android:text="反向解析"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"/>
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/result"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="top"
+        android:editable="false"
+        android:cursorVisible="false"
+        android:text="这个是啥啊"/>
+
+</LinearLayout>
