@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.arthurwang.helloworld">
 
+    <uses-sdk android:minSdkVersion="14" />
+
     <!-- To auto-complete the email text field in the login form with the user's emails -->
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
@@ -34,11 +36,11 @@
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
 
     <!-- NFC -->
-    <uses-permission android:name="android.permission.NFC"/>
-    <uses-sdk android:minSdkVersion="14"/>
-    <uses-feature android:name="android.hardware.nfc"
-        android:required="true"/>
+    <uses-permission android:name="android.permission.NFC" />
 
+    <uses-feature
+        android:name="android.hardware.nfc"
+        android:required="true" />
 
     <application
         android:allowBackup="true"
@@ -76,29 +78,46 @@
         <activity
             android:name=".AddressLocationActivity"
             android:label="星期五">
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
+        </activity>
+        <activity
+            android:name=".NFCActivity"
+            android:alwaysRetainTaskState="true"
+            android:label="NFC调试"
+            android:launchMode="singleInstance">
             <!--<intent-filter>-->
                 <!--<action android:name="android.intent.action.MAIN" />-->
 
                 <!--<category android:name="android.intent.category.LAUNCHER" />-->
             <!--</intent-filter>-->
+            <intent-filter>
+                <action android:name="android.nfc.action.NDEF_DISCOVERED" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="application/com.example.arthurwang.helloworld" />
+            </intent-filter>
+            <!-- <meta-data android:name="android.nfc.action.TECH_DISCOVERED" -->
+            <!-- android:resource="@xml/nfc_tech_filter"/> -->
         </activity>
-        <activity android:name=".NFCActivity"
-            android:label="NFC调试"
-            android:launchMode="singleInstance"
-            android:alwaysRetainTaskState="true">
+        <activity
+            android:name=".Activity1Activity"
+            android:label="@string/title_activity_activity1" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-            <intent-filter>
-                <action android:name="android.nfc.action.NDEF_DISCOVERED"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-                <data android:mimeType="application/com.example.arthurwang.helloworld"/>
-            </intent-filter>
-            <!--<meta-data android:name="android.nfc.action.TECH_DISCOVERED"-->
-                <!--android:resource="@xml/nfc_tech_filter"/>-->
         </activity>
+        <activity
+            android:name=".Activity2Activity"
+            android:label="@string/title_activity_activity2"></activity>
     </application>
 
 </manifest>

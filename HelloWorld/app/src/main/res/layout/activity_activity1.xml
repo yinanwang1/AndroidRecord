@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_activity1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.arthurwang.helloworld.Activity1Activity"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:textSize="@dimen/text_big"
+        android:text="@string/activity1"
+        android:background="@drawable/bg_border"/>
+
+    <TextView
+        android:id="@+id/textview2"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bg_border"
+        android:text="我接受来自EditText（输入框1）的输入"
+        android:textSize="16dp"/>
+
+    <EditText
+        android:id="@+id/editText1"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/bg_border"
+        android:layout_marginTop="10dp"
+        android:hint="来啊输入啊"/>
+
+    <Button
+        android:id="@+id/clickMe"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="点击我"/>
+
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/bg_border"
+        android:textSize="16dp"
+        android:hint="输入框2"/>
+
+    <Button
+        android:id="@+id/clickMeToJump"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="点击我跳转到第二个界面" />
+
+    <TextView
+        android:id="@+id/textview3"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/bg_border"/>
+
+</LinearLayout>

@@ -23,7 +23,6 @@ public class NFCActivity extends Activity implements NfcAdapter.CreateNdefMessag
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nfc);
 
-
         promt = (TextView) findViewById(R.id.promt);
         nfcAdapter = NfcAdapter.getDefaultAdapter(this);
 

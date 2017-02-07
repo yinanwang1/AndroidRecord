@@ -9,4 +9,5 @@
     <dimen name="cell_width">60dp</dimen>
     <dimen name="cell_height">66dp</dimen>
     <dimen name="title_font_size">18sp</dimen>
+    <dimen name="text_big">30dp</dimen>
 </resources>
