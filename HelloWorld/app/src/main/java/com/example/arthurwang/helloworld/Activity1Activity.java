@@ -23,6 +23,9 @@ public class Activity1Activity extends Activity {
 
     private static final String ext_name = "name";
 
+    String str = new String("good");
+    char[] ch = {'a','b','c'};
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,6 +76,11 @@ public class Activity1Activity extends Activity {
                 startActivityForResult(intent, 1);
             }
         });
+
+        change(str, ch);
+
+        KLog.e("测试下哈：" + str + " and " + ch[0] + ch[1] + ch[2]);
+
     }
 
     @Override
@@ -89,4 +97,12 @@ public class Activity1Activity extends Activity {
         }
 
     }
+
+
+    public void change(String str, char ch[]){
+        str = "test ok";
+        ch[0]= 'g';
+    }
+
+
 }
