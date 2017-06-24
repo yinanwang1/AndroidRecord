@@ -1,39 +1,20 @@
-package com.example.arthurwang.helloworld;
-
+package com.example.arthurwang.helloworld.May;
 
 import android.app.Activity;
 import android.content.Context;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.Rect;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
-import android.media.AudioManager;
-import android.media.MediaPlayer;
-import android.media.audiofx.BassBoost;
-import android.media.audiofx.Equalizer;
-import android.media.audiofx.PresetReverb;
-import android.media.audiofx.Visualizer;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.Gravity;
-import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CompoundButton;
-import android.widget.LinearLayout;
 import android.widget.RadioButton;
-import android.widget.SeekBar;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.amap.api.maps.AMap;
+
 import com.amap.api.maps.CameraUpdate;
 import com.amap.api.maps.CameraUpdateFactory;
 import com.amap.api.maps.MapView;
@@ -42,11 +23,9 @@ import com.amap.api.maps.model.BitmapDescriptorFactory;
 import com.amap.api.maps.model.LatLng;
 import com.amap.api.maps.model.Marker;
 import com.amap.api.maps.model.MarkerOptions;
-
-import org.w3c.dom.Text;
+import com.example.arthurwang.helloworld.R;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity extends Activity
 {

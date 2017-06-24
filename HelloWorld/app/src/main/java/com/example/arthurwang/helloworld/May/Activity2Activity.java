@@ -1,13 +1,14 @@
-package com.example.arthurwang.helloworld;
+package com.example.arthurwang.helloworld.May;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.app.Activity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.arthurwang.helloworld.R;
 import com.socks.library.KLog;
 
 public class Activity2Activity extends Activity {

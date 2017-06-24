@@ -1,4 +1,4 @@
-package com.example.arthurwang.helloworld;
+package com.example.arthurwang.helloworld.May;
 
 import android.app.Activity;
 import android.content.Context;
@@ -10,7 +10,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.amap.api.maps.AMap;
@@ -18,8 +17,6 @@ import com.amap.api.maps.CameraUpdate;
 import com.amap.api.maps.CameraUpdateFactory;
 import com.amap.api.maps.MapView;
 import com.amap.api.maps.model.BitmapDescriptorFactory;
-import com.amap.api.maps.model.CircleOptions;
-import com.amap.api.maps.model.GroundOverlayOptions;
 import com.amap.api.maps.model.LatLng;
 import com.amap.api.maps.model.MarkerOptions;
 import com.amap.api.maps.model.PolylineOptions;
@@ -36,8 +33,7 @@ import com.amap.api.services.route.DriveStep;
 import com.amap.api.services.route.RideRouteResult;
 import com.amap.api.services.route.RouteSearch;
 import com.amap.api.services.route.WalkRouteResult;
-import com.amap.api.services.routepoisearch.RoutePOISearch;
-import com.amap.api.services.routepoisearch.RoutePOISearchResult;
+import com.example.arthurwang.helloworld.R;
 
 import java.util.ArrayList;
 import java.util.List;

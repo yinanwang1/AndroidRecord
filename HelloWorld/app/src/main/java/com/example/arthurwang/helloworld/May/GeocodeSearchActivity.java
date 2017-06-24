@@ -1,7 +1,7 @@
-package com.example.arthurwang.helloworld;
+package com.example.arthurwang.helloworld.May;
+
 
 import android.app.Activity;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -16,6 +16,7 @@ import com.amap.api.services.geocoder.GeocodeSearch;
 import com.amap.api.services.geocoder.RegeocodeAddress;
 import com.amap.api.services.geocoder.RegeocodeQuery;
 import com.amap.api.services.geocoder.RegeocodeResult;
+import com.example.arthurwang.helloworld.R;
 
 public class GeocodeSearchActivity extends Activity implements View.OnClickListener
 {
