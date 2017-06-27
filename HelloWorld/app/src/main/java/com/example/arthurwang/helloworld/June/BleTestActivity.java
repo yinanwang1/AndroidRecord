@@ -394,7 +394,13 @@ public class BleTestActivity extends Activity {
                     statusStr = "失败";
                 }
 
-                mTvStatus.setText(responseType + statusStr);
+                final String result = responseType + statusStr;
+                mTvStatus.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        mTvStatus.setText(result);
+                    }
+                });
             }
 
             @Override
@@ -403,15 +409,25 @@ public class BleTestActivity extends Activity {
                 {
                     hasBeenConnection = true;
 
-                    mBtConnect.setText("已连接");
-                    mTvStatus.setText("连接成功");
+                    mTvStatus.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            mBtConnect.setText("已连接");
+                            mTvStatus.setText("连接成功");
+                        }
+                    });
                 }
                 else
                 {
                     hasBeenConnection = false;
 
-                    mBtConnect.setText("断开连接");
-                    mTvStatus.setText("连接失败");
+                    mTvStatus.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            mBtConnect.setText("断开连接");
+                            mTvStatus.setText("连接失败");
+                        }
+                    });
 
                     connect();
                 }

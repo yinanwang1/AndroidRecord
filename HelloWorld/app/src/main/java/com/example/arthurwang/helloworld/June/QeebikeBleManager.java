@@ -8,6 +8,7 @@ import android.content.Context;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
+import android.os.Message;
 import android.util.Log;
 
 import com.clj.fastble.BleManager;
@@ -16,6 +17,7 @@ import com.clj.fastble.conn.BleGattCallback;
 import com.clj.fastble.data.ScanResult;
 import com.clj.fastble.exception.BleException;
 import com.clj.fastble.utils.HexUtil;
+import com.example.arthurwang.helloworld.June.ble.AESCipher;
 import com.example.arthurwang.helloworld.June.ble.BluetoothInterface;
 import com.example.arthurwang.helloworld.June.ble.BluetoothRequestType;
 import com.example.arthurwang.helloworld.June.ble.BluetoothResponseType;
@@ -54,6 +56,8 @@ public class QeebikeBleManager {
 
     private boolean hasConnected = false;
     private ArrayList<String> writeDataArr = new ArrayList<>();
+    private Handler handler;
+    private volatile Thread thread;
 
     public static QeebikeBleManager getManager() {
         if (manager == null){
@@ -75,13 +79,16 @@ public class QeebikeBleManager {
         {
             bluetoothInterface.bluetoothResponse(BluetoothResponseType.kBleResponseTypeError, "不支持蓝牙4.0");
 
+            stopThread();
+
             return;
         }
 
         enableBlue();
 
         this.bluetoothInterface = bluetoothInterface;
-        this.mDeviceName = PREFIX + bikeNo;
+//        this.mDeviceName = PREFIX + bikeNo;  TODO wyn 需要删除
+        this.mDeviceName = PREFIX;
 
         if (hasConnected)
         {
@@ -107,19 +114,16 @@ public class QeebikeBleManager {
         hasConnected = false;
     }
 
-    public void sendMessage(String key, BluetoothRequestType type, String content)
-    {
+    public void sendMessage(String key, BluetoothRequestType type, String content) {
         String decodeKey = "";
-//        try {
-//            decodeKey = AESCipher.aesDecryptString(key, ASE_KEY);
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-        decodeKey = key;
+        try {
+            decodeKey = AESCipher.aesDecryptString(key, ASE_KEY);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         String writeContent = decodeKey + type.getCode() + content;
 
-        if (!hasConnected)
-        {
+        if (!hasConnected) {
             scanAndConnect1();
 
             writeDataArr.add(writeContent);
@@ -127,6 +131,26 @@ public class QeebikeBleManager {
 
             write(writeContent);
         }
+
+        if (null == handler) {
+            handler = new Handler() {
+                public void handleMessage(Message msg) {
+
+                    bluetoothInterface.bluetoothResponse(BluetoothResponseType.kBleResponseTypeError, "1");
+
+                    stopThread();
+
+                    super.handleMessage(msg);
+                }
+            };
+        }
+
+        if (null == thread)
+        {
+            thread = new Thread(new MyThread());
+        }
+
+        thread.start();
     }
 
 
@@ -202,6 +226,8 @@ public class QeebikeBleManager {
 
                         hasConnected = true;
 
+                        bluetoothInterface.bluetoothConnectSuccess(true);
+
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {
                             BluetoothGattService service = gatt.getService(UUID.fromString(UUID_SERVICE));
 
@@ -239,7 +265,11 @@ public class QeebikeBleManager {
 
                         hasConnected = false;
 
+                        bluetoothInterface.bluetoothConnectSuccess(false);
+
                         bluetoothInterface.bluetoothResponse(BluetoothResponseType.kBleResponseTypeError, exception.getDescription());
+
+                        stopThread();
                     }
 
 
@@ -278,6 +308,8 @@ public class QeebikeBleManager {
                         KLog.e(exception.getDescription());
 
                         bluetoothInterface.bluetoothResponse(BluetoothResponseType.kBleResponseTypeError, exception.getDescription());
+
+                        stopThread();
                     }
                 });
     }
@@ -311,6 +343,8 @@ public class QeebikeBleManager {
                         KLog.e(exception.getDescription());
 
                         bluetoothInterface.bluetoothResponse(BluetoothResponseType.kBleResponseTypeError, exception.getDescription());
+
+                        stopThread();
                     }
                 });
     }
@@ -337,6 +371,8 @@ public class QeebikeBleManager {
                         KLog.e(exception.getDescription());
 
                         bluetoothInterface.bluetoothResponse(BluetoothResponseType.kBleResponseTypeError, exception.getDescription());
+
+                        stopThread();
                     }
                 });
     }
@@ -350,6 +386,8 @@ public class QeebikeBleManager {
 
         if (0 >= data.length) {
             bluetoothInterface.bluetoothResponse(BluetoothResponseType.kBleResponseTypeError, "数据为空");
+
+            stopThread();
 
             return;
         }
@@ -365,6 +403,8 @@ public class QeebikeBleManager {
         if (2 != dataList.size())
         {
             bluetoothInterface.bluetoothResponse(BluetoothResponseType.kBleResponseTypeError, "数据格式不正确");
+
+            stopThread();
 
             return;
         }
@@ -395,6 +435,8 @@ public class QeebikeBleManager {
         }
 
         bluetoothInterface.bluetoothResponse(type, contentStr);
+
+        stopThread();
     }
 
     // 处理repose ___end___
@@ -434,4 +476,35 @@ public class QeebikeBleManager {
             baos.write((hexString.indexOf(bytes.charAt(i)) << 4 | hexString.indexOf(bytes.charAt(i + 1))));
         return new String(baos.toByteArray());
     }
+
+
+    public class MyThread implements Runnable {
+
+        @Override
+        public void run() {
+            Thread thisThread = Thread.currentThread();
+            while (thread == thisThread) {
+                try {
+                    thisThread.sleep(TIME_OUT); // 单位毫秒
+                    Message message = new Message();
+                    message.what = 1;
+                    handler.sendMessage(message);// 发送消息
+                } catch (InterruptedException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    private void stopThread()
+    {
+        KLog.e("停止线程");
+
+        if (null != thread) {
+            thread.interrupt();
+            thread = null;
+        }
+    }
 }
+
