@@ -44,7 +44,7 @@ public class QeebikeBleManager {
     private static final String UUID_WRITE = "00002A06-0000-1000-8000-00805f9b34fb";
     private static final String UUID_READ = "00002ABC-0000-1000-8000-00805f9b34fb";
 
-    private static final long TIME_OUT = 5000;                                          // 扫描超时时间
+    private static final long TIME_OUT = 10000;                                          // 扫描超时时间
     private static final String TAG = "ble_manager";
     private static final String PREFIX = "qeebike_";                                    // 蓝牙名称的前缀
 
