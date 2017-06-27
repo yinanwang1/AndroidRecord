@@ -34,6 +34,8 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.CHANGE_CONFIGURATION" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
 
     <!-- NFC -->
     <uses-permission android:name="android.permission.NFC" />
@@ -54,7 +56,7 @@
             android:value="8c9af40c6c445614a448026cfcbce2bb" />
 
         <activity
-            android:name=".MainActivity"
+            android:name=".May.MainActivity"
             android:label="世界如此美丽">
 
             <!-- <intent-filter> -->
@@ -65,7 +67,7 @@
             <!-- </intent-filter> -->
         </activity>
         <activity
-            android:name=".GeocodeSearchActivity"
+            android:name=".May.GeocodeSearchActivity"
             android:label="新世界">
 
             <!-- <intent-filter> -->
@@ -76,7 +78,7 @@
             <!-- </intent-filter> -->
         </activity>
         <activity
-            android:name=".AddressLocationActivity"
+            android:name=".May.AddressLocationActivity"
             android:label="星期五">
 
             <!-- <intent-filter> -->
@@ -87,15 +89,17 @@
             <!-- </intent-filter> -->
         </activity>
         <activity
-            android:name=".NFCActivity"
+            android:name=".May.NFCActivity"
             android:alwaysRetainTaskState="true"
             android:label="NFC调试"
             android:launchMode="singleInstance">
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN" />-->
 
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
             <intent-filter>
                 <action android:name="android.nfc.action.NDEF_DISCOVERED" />
 
@@ -107,17 +111,26 @@
             <!-- android:resource="@xml/nfc_tech_filter"/> -->
         </activity>
         <activity
-            android:name=".Activity1Activity"
-            android:label="@string/title_activity_activity1" >
+            android:name=".May.Activity1Activity"
+            android:label="@string/title_activity_activity1">
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN" />-->
+
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
+        </activity>
+        <activity
+            android:name=".May.Activity2Activity"
+            android:label="@string/title_activity_activity2" />
+        <activity
+            android:name=".June.BleTestActivity"
+            android:label="@string/title_activity_ble_test">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".Activity2Activity"
-            android:label="@string/title_activity_activity2"></activity>
     </application>
 
 </manifest>

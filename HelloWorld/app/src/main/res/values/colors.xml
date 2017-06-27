@@ -19,4 +19,6 @@
     <color name="c7">#07F</color>
     <color name="c8">#70F</color>
     <color name="c9">#F70</color>
+
+    <color name="blue_background">#07A9FA</color>
 </resources>

@@ -1,3 +1,5 @@
+package com.example.arthurwang.helloworld.May;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,7 +10,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.example.arthurwang.helloworld.Activity2Activity;
 import com.example.arthurwang.helloworld.R;
 import com.socks.library.KLog;
 
