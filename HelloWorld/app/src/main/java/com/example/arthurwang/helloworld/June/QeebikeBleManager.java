@@ -121,7 +121,7 @@ public class QeebikeBleManager {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        String writeContent = decodeKey + type.getCode() + content;
+        String writeContent = decodeKey + "," + type.getCode() + "," + content;
 
         if (!hasConnected) {
             scanAndConnect1();
@@ -231,6 +231,13 @@ public class QeebikeBleManager {
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {
                             BluetoothGattService service = gatt.getService(UUID.fromString(UUID_SERVICE));
 
+                            BluetoothGattCharacteristic characteristic = service.getCharacteristic(UUID.fromString(UUID_NOTIFY));
+
+                            if (null != characteristic)
+                            {
+                                KLog.e("wyn characteristic is " + characteristic.getUuid());
+                            }
+
                             if (null != service)
                             {
                                 runOnMainThread(new Runnable() {
@@ -290,6 +297,8 @@ public class QeebikeBleManager {
      * notify
      */
     private void listen_notify() {
+        KLog.e("listen_notify 开始监听");
+
         bleManager.notify(
                 UUID_SERVICE,
                 UUID_NOTIFY,
@@ -305,7 +314,7 @@ public class QeebikeBleManager {
 
                     @Override
                     public void onFailure(BleException exception) {
-                        KLog.e(exception.getDescription());
+                        KLog.e("listen_notify exception" + exception.getDescription());
 
                         bluetoothInterface.bluetoothResponse(BluetoothResponseType.kBleResponseTypeError, exception.getDescription());
 
@@ -336,6 +345,8 @@ public class QeebikeBleManager {
                     @Override
                     public void onSuccess(BluetoothGattCharacteristic characteristic) {
                         KLog.e("写指令成功");
+
+                        KLog.e("characteristic.getWriteType() is " + characteristic.getWriteType());
                     }
 
                     @Override
