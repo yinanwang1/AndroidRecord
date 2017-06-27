@@ -87,8 +87,7 @@ public class QeebikeBleManager {
         enableBlue();
 
         this.bluetoothInterface = bluetoothInterface;
-//        this.mDeviceName = PREFIX + bikeNo;  TODO wyn 需要删除
-        this.mDeviceName = PREFIX;
+        this.mDeviceName = PREFIX + bikeNo;
 
         if (hasConnected)
         {
