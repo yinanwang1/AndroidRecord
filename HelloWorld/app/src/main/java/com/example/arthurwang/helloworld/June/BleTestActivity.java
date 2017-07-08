@@ -1,9 +1,14 @@
 package com.example.arthurwang.helloworld.June;
 
+import android.Manifest;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.View;
@@ -22,6 +27,7 @@ import com.example.arthurwang.helloworld.June.ble.BluetoothInterface;
 import com.example.arthurwang.helloworld.June.ble.BluetoothRequestType;
 import com.example.arthurwang.helloworld.June.ble.BluetoothResponseType;
 import com.example.arthurwang.helloworld.R;
+import com.socks.library.KLog;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,8 +47,11 @@ import static com.example.arthurwang.helloworld.June.ble.BluetoothRequestType.kB
 import static com.example.arthurwang.helloworld.June.ble.BluetoothRequestType.kBleRequestTypeUSB;
 import static com.example.arthurwang.helloworld.June.ble.BluetoothRequestType.kBleRequestTypeUnlock;
 import static com.example.arthurwang.helloworld.June.ble.BluetoothRequestType.kBleRequestTypeUnlockCollect;
+import static com.example.arthurwang.helloworld.June.ble.BluetoothRequestType.kBleRequestTypeUnlockCollectWithoutClearMileage;
 
 public class BleTestActivity extends Activity {
+
+    private static final int MY_PERMISSIONS_REQUEST_ACCESS_COARSE_LOCATION = 1000;
 
     protected LinearLayout mLlBaseView;
     protected EditText mEtBikeNumber;
@@ -74,6 +83,7 @@ public class BleTestActivity extends Activity {
     private final int kBleCellFuctionBatteryLock = 15;
     private final int kBleCellFuctionFind = 16;
     private final int kBleCellFuctionStartTravel = 17;
+    private final int kBleCellFuctionStartTravelWithOutClearMilage = 18;
 
 
     @Override
@@ -88,6 +98,26 @@ public class BleTestActivity extends Activity {
         addListener();
 
         initialListView();
+
+
+//判断是否有权限
+        if (ContextCompat.checkSelfPermission(this,
+                Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+//请求权限
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_COARSE_LOCATION},
+                    MY_PERMISSIONS_REQUEST_ACCESS_COARSE_LOCATION);
+//判断是否需要 向用户解释，为什么要申请该权限
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this,
+                    Manifest.permission.READ_CONTACTS)) {
+                Toast.makeText(this, "shouldShowRequestPermissionRationale", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[]
+            grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
 
 
@@ -109,8 +139,7 @@ public class BleTestActivity extends Activity {
 
                 showMessage("开始连接蓝牙设备");
 
-                if (0 >= mEtBikeNumber.getText().toString().length())
-                {
+                if (0 >= mEtBikeNumber.getText().toString().length()) {
                     showLoading("请输入单车编号");
 
                     return;
@@ -126,15 +155,13 @@ public class BleTestActivity extends Activity {
         mLvOperation.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if (!hasBeenConnection)
-                {
+                if (!hasBeenConnection) {
                     showMessage("请先连接蓝牙");
 
                     return;
                 }
 
-                if (0 >= mEtKey.getText().toString().length())
-                {
+                if (0 >= mEtKey.getText().toString().length()) {
                     showMessage("请输入key");
 
                     return;
@@ -143,143 +170,132 @@ public class BleTestActivity extends Activity {
                 BluetoothRequestType requestType = kBleRequestTypeUnlock;
                 String content = "0";
 
-                switch (position)
-                {
-                    case kBleCellFuctionUnlock:
-                    {
+                switch (position) {
+                    case kBleCellFuctionUnlock: {
                         requestType = kBleRequestTypeUnlock;
                         content = "0";
                     }
                     break;
 
-                    case kBleCellFuctionPowerOnElectricity:
-                    {
+                    case kBleCellFuctionPowerOnElectricity: {
                         requestType = kBleRequestTypePowerOn;
                         content = "1";
                     }
                     break;
 
-                    case kBleCellFuctionPowerOnAssistant:
-                    {
+                    case kBleCellFuctionPowerOnAssistant: {
                         requestType = kBleRequestTypePowerOn;
                         content = "2";
                     }
                     break;
 
-                    case kBleCellFuctionPowerOnManPower:
-                    {
+                    case kBleCellFuctionPowerOnManPower: {
                         requestType = kBleRequestTypePowerOn;
                         content = "3";
                     }
                     break;
 
-                    case kBleCellFuctionPowerOnStrongAssistant:
-                    {
+                    case kBleCellFuctionPowerOnStrongAssistant: {
                         requestType = kBleRequestTypePowerOn;
                         content = "4";
                     }
                     break;
 
-                    case kBleCellFuctionPowerOnMiddleAssistant:
-                    {
+                    case kBleCellFuctionPowerOnMiddleAssistant: {
                         requestType = kBleRequestTypePowerOn;
                         content = "5";
                     }
                     break;
 
-                    case kBleCellFuctionPowerOnWeakAssistant:
-                    {
+                    case kBleCellFuctionPowerOnWeakAssistant: {
                         requestType = kBleRequestTypePowerOn;
                         content = "6";
                     }
                     break;
 
-                    case kBleCellFuctionPowerOff:
-                    {
+                    case kBleCellFuctionPowerOff: {
                         requestType = kBleRequestTypePowerOff;
                         content = "0";
                     }
                     break;
 
-                    case kBleCellFuctionClearMiles:
-                    {
+                    case kBleCellFuctionClearMiles: {
                         requestType = kBleRequestTypeClearMileage;
                         content = "0";
                     }
                     break;
 
-                    case kBleCellFuctionLock:
-                    {
+                    case kBleCellFuctionLock: {
                         requestType = kBleRequestTypeLock;
                         content = "0";
                     }
                     break;
 
-                    case kBleCellFuctionLightOn:
-                    {
+                    case kBleCellFuctionLightOn: {
                         requestType = kBleRequestTypeLight;
                         content = "1";
                     }
                     break;
 
-                    case kBleCellFuctionLightOff:
-                    {
+                    case kBleCellFuctionLightOff: {
                         requestType = kBleRequestTypeLight;
                         content = "0";
                     }
                     break;
 
-                    case kBleCellFuctionUSBOn:
-                    {
+                    case kBleCellFuctionUSBOn: {
                         requestType = kBleRequestTypeUSB;
                         content = "1";
                     }
                     break;
 
-                    case kBleCellFuctionUSBOff:
-                    {
+                    case kBleCellFuctionUSBOff: {
                         requestType = kBleRequestTypeUSB;
                         content = "0";
                     }
                     break;
 
-                    case kBleCellFuctionBatteryUnlock:
-                    {
+                    case kBleCellFuctionBatteryUnlock: {
                         requestType = kBleRequestTypeOpenPowerLock;
                         content = "0";
                     }
                     break;
 
-                    case kBleCellFuctionBatteryLock:
-                    {
+                    case kBleCellFuctionBatteryLock: {
                         requestType = kBleRequestTypeClosePowerLock;
                         content = "0";
                     }
                     break;
 
-                    case kBleCellFuctionFind:
-                    {
+                    case kBleCellFuctionFind: {
                         requestType = kBleRequestTypeFind;
                         content = "0";
                     }
+                    break;
 
-                    case kBleCellFuctionStartTravel:
-                    {
+                    case kBleCellFuctionStartTravel: {
                         requestType = kBleRequestTypeUnlockCollect;
                         content = "0";
                     }
+                    break;
+
+                    case kBleCellFuctionStartTravelWithOutClearMilage: {
+                        requestType = kBleRequestTypeUnlockCollectWithoutClearMileage;
+                        content = "0";
+                    }
+                    break;
 
                     default:
                         break;
                 }
 
+                KLog.e("requestType is " + requestType.getDescription());
+
                 String keyAES = "vPXo76sGwXg9uqIR";
                 String keyEncode = "";
-                try
-                {
+                try {
                     keyEncode = AESCipher.aesEncryptString(mEtKey.getText().toString(), keyAES);
-                } catch (Exception e)
-                {
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
 
@@ -292,11 +308,8 @@ public class BleTestActivity extends Activity {
     }
 
 
-
-
-    private void connect()
-    {
-        QeebikeBleManager.getManager().connectBle(BleTestActivity.this, mEtBikeNumber.getText().toString(), new BluetoothInterface(){
+    private void connect() {
+        QeebikeBleManager.getManager().connectBle(BleTestActivity.this, mEtBikeNumber.getText().toString(), new BluetoothInterface() {
 
             @Override
             public void bluetoothResponse(BluetoothResponseType type, String content) {
@@ -304,93 +317,77 @@ public class BleTestActivity extends Activity {
 
                 String responseType = "";
 
-                switch (type)
-                {
-                    case kBleResponseTypeError:
-                    {
+                switch (type) {
+                    case kBleResponseTypeError: {
                         responseType = "蓝牙响应超时 ";
                     }
                     break;
 
-                    case kBleResponseTypeLock:
-                    {
+                    case kBleResponseTypeLock: {
                         responseType = "关锁 ";
                     }
                     break;
 
-                    case kBleResponseTypeUnlock:
-                    {
+                    case kBleResponseTypeUnlock: {
                         responseType = "解锁 ";
                     }
                     break;
 
-                    case kBleResponseTypePowerOn:
-                    {
+                    case kBleResponseTypePowerOn: {
                         responseType = "通电 ";
                     }
                     break;
 
-                    case kBleResponseTypePowerOff:
-                    {
+                    case kBleResponseTypePowerOff: {
                         responseType = "断电 ";
                     }
                     break;
 
-                    case kBleResponseTypeFind:
-                    {
+                    case kBleResponseTypeFind: {
                         responseType = "寻车提示 ";
                     }
                     break;
 
-                    case kBleResponseTypeOpenPowerLock:
-                    {
+                    case kBleResponseTypeOpenPowerLock: {
                         responseType = "电池锁打开 ";
                     }
                     break;
 
-                    case kBleResponseTypeClosePowerLock:
-                    {
+                    case kBleResponseTypeClosePowerLock: {
                         responseType = "电池锁关闭 ";
                     }
                     break;
 
-                    case kBleResponseTypeClearMileage:
-                    {
+                    case kBleResponseTypeClearMileage: {
                         responseType = "里程清零 ";
                     }
                     break;
 
-                    case kBleResponseTypeLight:
-                    {
+                    case kBleResponseTypeLight: {
                         responseType = "灯光控制 ";
                     }
                     break;
 
-                    case kBleResponseTypeUSB:
-                    {
+                    case kBleResponseTypeUSB: {
                         responseType = "USB控制 ";
                     }
                     break;
 
-                    case kBleResponseTypeUnlockCollect:
-                    {
+                    case kBleResponseTypeUnlockCollect: {
                         responseType = "解锁、通电、里程清零 ";
                     }
                     break;
 
-                    case kBleResponseTypeUnlockCollectWithoutClearMileage:
-                    {
+                    case kBleResponseTypeUnlockCollectWithoutClearMileage: {
                         responseType = "解锁、通电 ";
                     }
                     break;
                 }
 
                 String statusStr = "";
-                if (0 == Integer.parseInt(content))
-                {
+                if (0 == Integer.parseInt(content)) {
                     statusStr = "成功";
-                }
-                else {
+                } else {
                     statusStr = "失败";
                 }
 
@@ -405,8 +402,7 @@ public class BleTestActivity extends Activity {
 
             @Override
             public void bluetoothConnectSuccess(boolean success) {
-                if (success)
-                {
+                if (success) {
                     hasBeenConnection = true;
 
                     mTvStatus.post(new Runnable() {
@@ -416,9 +412,7 @@ public class BleTestActivity extends Activity {
                             mTvStatus.setText("连接成功");
                         }
                     });
-                }
-                else
-                {
+                } else {
                     hasBeenConnection = false;
 
                     mTvStatus.post(new Runnable() {
@@ -435,8 +429,7 @@ public class BleTestActivity extends Activity {
         });
     }
 
-    private void sendType(String key, BluetoothRequestType type, String content)
-    {
+    private void sendType(String key, BluetoothRequestType type, String content) {
         hideInputSoftware(mLlBaseView);
 
         QeebikeBleManager.getManager().sendMessage(key, type, content);
@@ -463,10 +456,10 @@ public class BleTestActivity extends Activity {
         data.add("电池锁关闭");
         data.add("寻车");
         data.add("解锁、通电、里程清零");
+        data.add("解锁、通电 ");
 
         return data;
     }
-
 
 
     /**
