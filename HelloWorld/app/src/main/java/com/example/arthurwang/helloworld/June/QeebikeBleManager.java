@@ -36,7 +36,7 @@ import java.util.UUID;
 public class QeebikeBleManager {
     private static QeebikeBleManager manager;
 
-    private static final String ASE_KEY ="vPXo76sGwXg9uqIR";
+    private static final String ASE_KEY ="123456";
 
     // 下面的所有UUID及指令请根据实际设备替换
     private static final String UUID_SERVICE = "00001802-0000-1000-8000-00805f9b34fb";

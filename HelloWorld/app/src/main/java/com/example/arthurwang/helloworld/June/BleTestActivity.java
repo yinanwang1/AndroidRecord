@@ -291,7 +291,7 @@ public class BleTestActivity extends Activity {
 
                 KLog.e("requestType is " + requestType.getDescription());
 
-                String keyAES = "vPXo76sGwXg9uqIR";
+                String keyAES = "123456";
                 String keyEncode = "";
                 try {
                     keyEncode = AESCipher.aesEncryptString(mEtKey.getText().toString(), keyAES);
