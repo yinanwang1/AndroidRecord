@@ -57,5 +57,6 @@
     <string name="activity1">我是Activity1</string>
     <string name="activity2">我是Activity2</string>
     <string name="title_activity_ble_test">BleTestActivity</string>
+    <string name="title_activity_jni">JNIActivity</string>
 
 </resources>
