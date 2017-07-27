@@ -3,11 +3,13 @@
 //
 
 #include "com_example_arthurwang_helloworld_July_MyNdk.h"
-#include "static.h"
+#include "i7565H1H2.h"
 
 JNIEXPORT jstring JNICALL Java_com_example_arthurwang_helloworld_July_MyNdk_getString(JNIEnv *env, jobject obj)
 {
-    int result = add(3, 3);
+    BYTE a = 43;
+    BYTE b = 43;
+    int result = VCI_Clr_TxSentCnt(a, b);
     char test[100] = "结果                ";
 
     if (3 < result)
