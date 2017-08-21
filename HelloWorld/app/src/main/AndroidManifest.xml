@@ -129,15 +129,17 @@
         <activity
             android:name=".June.BleTestActivity"
             android:label="@string/app_name">
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN" />-->
 
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
-        <activity
-            android:name=".July.JNIActivity"
-            android:label="@string/title_activity_jni">
+        <activity android:name=".Aug.AugActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
