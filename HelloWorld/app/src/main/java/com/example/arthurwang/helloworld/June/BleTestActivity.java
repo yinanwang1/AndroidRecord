@@ -32,9 +32,9 @@ import com.socks.library.KLog;
 import java.util.ArrayList;
 import java.util.List;
 
-import rx.Observable;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.functions.Action1;
+import io.reactivex.Observable;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.functions.Consumer;
 
 import static com.example.arthurwang.helloworld.June.ble.BluetoothRequestType.kBleRequestTypeClearMileage;
 import static com.example.arthurwang.helloworld.June.ble.BluetoothRequestType.kBleRequestTypeClosePowerLock;
@@ -512,11 +512,14 @@ public class BleTestActivity extends Activity {
     }
 
     public void showMessage(String msg, final int length) {
-        if (TextUtils.isEmpty(msg)) return;
+        if (TextUtils.isEmpty(msg)) {
+            return;
+        }
+
         Observable.just(msg).observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Action1<String>() {
+                .subscribe(new Consumer<String>() {
                     @Override
-                    public void call(String s) {
+                    public void accept(String s) throws Exception {
                         synchronized (object) {
                             if (toast != null) {
                                 toast.cancel();
