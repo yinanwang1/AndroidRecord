@@ -1,5 +1,5 @@
 
-package com.example.arthurwang.helloworld.May;
+package com.example.arthurwang.helloworld.may;
 
 /**
  * Created by arthurwang on 2017/2/8.

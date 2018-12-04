@@ -1,4 +1,4 @@
-package com.example.arthurwang.helloworld.May;
+package com.example.arthurwang.helloworld.may;
 
 import android.app.Activity;
 import android.content.Context;

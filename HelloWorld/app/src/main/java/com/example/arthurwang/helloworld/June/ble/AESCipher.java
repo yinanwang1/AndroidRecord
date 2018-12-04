@@ -1,4 +1,4 @@
-package com.example.arthurwang.helloworld.June.ble;
+package com.example.arthurwang.helloworld.june.ble;
 
 import com.example.arthurwang.helloworld.base.Base64;
 

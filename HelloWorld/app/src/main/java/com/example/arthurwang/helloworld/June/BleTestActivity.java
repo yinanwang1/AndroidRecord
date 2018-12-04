@@ -1,4 +1,4 @@
-package com.example.arthurwang.helloworld.June;
+package com.example.arthurwang.helloworld.june;
 
 import android.Manifest;
 import android.app.Activity;
@@ -22,10 +22,10 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.arthurwang.helloworld.June.ble.AESCipher;
-import com.example.arthurwang.helloworld.June.ble.BluetoothInterface;
-import com.example.arthurwang.helloworld.June.ble.BluetoothRequestType;
-import com.example.arthurwang.helloworld.June.ble.BluetoothResponseType;
+import com.example.arthurwang.helloworld.june.ble.AESCipher;
+import com.example.arthurwang.helloworld.june.ble.BluetoothInterface;
+import com.example.arthurwang.helloworld.june.ble.BluetoothRequestType;
+import com.example.arthurwang.helloworld.june.ble.BluetoothResponseType;
 import com.example.arthurwang.helloworld.R;
 import com.socks.library.KLog;
 
@@ -36,18 +36,18 @@ import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.functions.Consumer;
 
-import static com.example.arthurwang.helloworld.June.ble.BluetoothRequestType.kBleRequestTypeClearMileage;
-import static com.example.arthurwang.helloworld.June.ble.BluetoothRequestType.kBleRequestTypeClosePowerLock;
-import static com.example.arthurwang.helloworld.June.ble.BluetoothRequestType.kBleRequestTypeFind;
-import static com.example.arthurwang.helloworld.June.ble.BluetoothRequestType.kBleRequestTypeLight;
-import static com.example.arthurwang.helloworld.June.ble.BluetoothRequestType.kBleRequestTypeLock;
-import static com.example.arthurwang.helloworld.June.ble.BluetoothRequestType.kBleRequestTypeOpenPowerLock;
-import static com.example.arthurwang.helloworld.June.ble.BluetoothRequestType.kBleRequestTypePowerOff;
-import static com.example.arthurwang.helloworld.June.ble.BluetoothRequestType.kBleRequestTypePowerOn;
-import static com.example.arthurwang.helloworld.June.ble.BluetoothRequestType.kBleRequestTypeUSB;
-import static com.example.arthurwang.helloworld.June.ble.BluetoothRequestType.kBleRequestTypeUnlock;
-import static com.example.arthurwang.helloworld.June.ble.BluetoothRequestType.kBleRequestTypeUnlockCollect;
-import static com.example.arthurwang.helloworld.June.ble.BluetoothRequestType.kBleRequestTypeUnlockCollectWithoutClearMileage;
+import static com.example.arthurwang.helloworld.june.ble.BluetoothRequestType.kBleRequestTypeClearMileage;
+import static com.example.arthurwang.helloworld.june.ble.BluetoothRequestType.kBleRequestTypeClosePowerLock;
+import static com.example.arthurwang.helloworld.june.ble.BluetoothRequestType.kBleRequestTypeFind;
+import static com.example.arthurwang.helloworld.june.ble.BluetoothRequestType.kBleRequestTypeLight;
+import static com.example.arthurwang.helloworld.june.ble.BluetoothRequestType.kBleRequestTypeLock;
+import static com.example.arthurwang.helloworld.june.ble.BluetoothRequestType.kBleRequestTypeOpenPowerLock;
+import static com.example.arthurwang.helloworld.june.ble.BluetoothRequestType.kBleRequestTypePowerOff;
+import static com.example.arthurwang.helloworld.june.ble.BluetoothRequestType.kBleRequestTypePowerOn;
+import static com.example.arthurwang.helloworld.june.ble.BluetoothRequestType.kBleRequestTypeUSB;
+import static com.example.arthurwang.helloworld.june.ble.BluetoothRequestType.kBleRequestTypeUnlock;
+import static com.example.arthurwang.helloworld.june.ble.BluetoothRequestType.kBleRequestTypeUnlockCollect;
+import static com.example.arthurwang.helloworld.june.ble.BluetoothRequestType.kBleRequestTypeUnlockCollectWithoutClearMileage;
 
 public class BleTestActivity extends Activity {
 

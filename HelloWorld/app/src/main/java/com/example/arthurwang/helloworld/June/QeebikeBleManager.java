@@ -1,4 +1,4 @@
-package com.example.arthurwang.helloworld.June;
+package com.example.arthurwang.helloworld.june;
 
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothGatt;
@@ -17,10 +17,10 @@ import com.clj.fastble.conn.BleGattCallback;
 import com.clj.fastble.data.ScanResult;
 import com.clj.fastble.exception.BleException;
 import com.clj.fastble.utils.HexUtil;
-import com.example.arthurwang.helloworld.June.ble.AESCipher;
-import com.example.arthurwang.helloworld.June.ble.BluetoothInterface;
-import com.example.arthurwang.helloworld.June.ble.BluetoothRequestType;
-import com.example.arthurwang.helloworld.June.ble.BluetoothResponseType;
+import com.example.arthurwang.helloworld.june.ble.AESCipher;
+import com.example.arthurwang.helloworld.june.ble.BluetoothInterface;
+import com.example.arthurwang.helloworld.june.ble.BluetoothRequestType;
+import com.example.arthurwang.helloworld.june.ble.BluetoothResponseType;
 import com.socks.library.KLog;
 
 import java.io.ByteArrayOutputStream;

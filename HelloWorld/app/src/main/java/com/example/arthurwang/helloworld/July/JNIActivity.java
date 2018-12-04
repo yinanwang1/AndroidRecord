@@ -1,4 +1,4 @@
-package com.example.arthurwang.helloworld.July;
+package com.example.arthurwang.helloworld.july;
 
 import android.app.Activity;
 import android.os.Bundle;

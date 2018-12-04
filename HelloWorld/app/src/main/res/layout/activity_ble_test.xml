@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.arthurwang.helloworld.June.BleTestActivity"
+    tools:context="com.example.arthurwang.helloworld.june.BleTestActivity"
     android:orientation="vertical"
     android:id="@+id/ll_base_view">
 

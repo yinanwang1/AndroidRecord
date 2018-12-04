@@ -1,4 +1,4 @@
-package com.example.arthurwang.helloworld.Nov;
+package com.example.arthurwang.helloworld.nov;
 
 import android.content.Intent;
 import android.os.Bundle;

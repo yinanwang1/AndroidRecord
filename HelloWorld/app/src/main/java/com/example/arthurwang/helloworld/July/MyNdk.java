@@ -1,4 +1,4 @@
-package com.example.arthurwang.helloworld.July;
+package com.example.arthurwang.helloworld.july;
 
 /**
  * Created by arthurwang on 2017/7/26.
