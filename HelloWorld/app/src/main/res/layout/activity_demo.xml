@@ -1,0 +1,27 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#ffffff"
+    android:orientation="vertical">
+
+    <com.example.arthurwang.helloworld.nov.ui.HorizontalScrollViewEx
+        android:id="@+id/container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"/>
+    
+    <com.example.arthurwang.helloworld.nov.ui.CircleView
+        android:id="@+id/circleView1"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:background="#000000"
+        android:layout_margin="20dp"
+        android:padding="20dp"
+        app:circle_color="@color/colorPrimary"/>
+    
+    
+
+
+</LinearLayout>
