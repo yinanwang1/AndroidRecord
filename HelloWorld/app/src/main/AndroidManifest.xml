@@ -219,6 +219,21 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <receiver android:name=".nov.MyAppWidgetProvider">
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/appwidget_provider_info">
+
+            </meta-data>
+
+            <intent-filter>
+                <action android:name="com.example.arthurwang.helloworld.nov.action.CLICK"/>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+        </receiver>
+
+
     </application>
 
 </manifest>

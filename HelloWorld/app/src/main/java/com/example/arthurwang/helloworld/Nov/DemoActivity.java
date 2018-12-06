@@ -1,19 +1,28 @@
 package com.example.arthurwang.helloworld.nov;
 
 import android.app.Activity;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
+import android.widget.RemoteViews;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.arthurwang.helloworld.R;
+import com.example.arthurwang.helloworld.nov.ui.CircleView;
 import com.example.arthurwang.helloworld.nov.ui.HorizontalScrollViewEx;
 import com.example.arthurwang.helloworld.nov.utils.MyUtils;
 
@@ -25,12 +34,62 @@ public class DemoActivity extends Activity {
 
     private HorizontalScrollViewEx mListContainer;
 
+    private HorizontalScrollViewEx mContainer;
+    private CircleView mCircleView1;
+    private Button mBtnRemoteView;
+
+    private void assignViews() {
+        mContainer = (HorizontalScrollViewEx) findViewById(R.id.container);
+        mCircleView1 = (CircleView) findViewById(R.id.circleView1);
+        mBtnRemoteView = (Button) findViewById(R.id.btn_remote_view);
+    }
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_demo);
         Log.d(TAG, "onCreate");
 //        initView();
+
+        assignViews();
+
+        mBtnRemoteView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DemoActivity.this, DemoActivity.class);
+                PendingIntent pendingIntent = PendingIntent.getActivity(DemoActivity.this,
+                        0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+                RemoteViews remoteViews = new RemoteViews(getPackageName(), R.layout.layout_notification);
+                remoteViews.setTextViewText(R.id.msg, "chapter_5");
+                remoteViews.setImageViewResource(R.id.icon, R.drawable.bomb8);
+                PendingIntent openActivity2PendingIntent = PendingIntent.getActivity(DemoActivity.this,
+                        0,
+                        new Intent(DemoActivity.this, TestActivity.class),
+                        PendingIntent.FLAG_UPDATE_CURRENT);
+                remoteViews.setOnClickPendingIntent(R.id.open_activity2, openActivity2PendingIntent);
+
+                Notification notification = new NotificationCompat.Builder(DemoActivity.this, "customer")
+                        .setSmallIcon(R.drawable.ic_launcher)
+                        .setContentTitle("Hello world!")
+                        .setContentText("我就是这么完美，你会不会害怕")
+                        .setContentIntent(pendingIntent)
+                        .setDefaults(Notification.DEFAULT_SOUND)
+                        .setAutoCancel(true)
+                        .setCustomContentView(remoteViews)
+                        .build();
+
+
+
+
+
+                NotificationManager notificationManager = (NotificationManager) DemoActivity.this.getSystemService(Context.NOTIFICATION_SERVICE);
+
+                notificationManager.notify(1, notification);
+
+            }
+        });
     }
 
     private void initView() {
