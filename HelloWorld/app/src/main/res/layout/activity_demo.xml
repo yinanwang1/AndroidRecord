@@ -19,13 +19,20 @@
         android:background="#000000"
         android:layout_margin="20dp"
         android:padding="20dp"
-        app:circle_color="@color/colorPrimary"/>
+        app:circle_color="@color/colorPrimary" />
 
     <Button
         android:id="@+id/btn_remote_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="发送通知"/>
+
+    <ImageView
+        android:id="@+id/iv_level"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/test_clip_drawable"
+        android:layout_gravity="center"/>
     
     
 

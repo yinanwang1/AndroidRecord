@@ -81,6 +81,10 @@ public class TestActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.e("test", "wyn click test");
+
+                finish();
+
+                overridePendingTransition(R.anim.enter_anim, R.anim.exit_anim);
             }
         });
 
