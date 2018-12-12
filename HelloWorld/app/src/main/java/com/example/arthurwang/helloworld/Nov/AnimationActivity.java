@@ -64,19 +64,12 @@ public class AnimationActivity extends AppCompatActivity {
     }
 
     @TargetApi(Build.VERSION_CODES.M)
-
-
-
     public void onButtonClick(View v) {
+        if (!mHasPermission) {
+            requestDrawOverLays();
 
-            if (!mHasPermission) {
-                requestDrawOverLays();
-
-                return;
-            }
-
-
-
+            return;
+        }
 
         if (v == mCreateWindowButton) {
             mFloatingButton = new Button(this);
