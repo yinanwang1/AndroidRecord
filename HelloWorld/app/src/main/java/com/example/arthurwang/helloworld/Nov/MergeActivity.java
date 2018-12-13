@@ -1,6 +1,7 @@
 package com.example.arthurwang.helloworld.nov;
 
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewStub;
@@ -10,6 +11,10 @@ import android.widget.RatingBar;
 import android.widget.Toast;
 
 import com.example.arthurwang.helloworld.R;
+import com.socks.library.KLog;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MergeActivity extends AppCompatActivity {
 
@@ -41,10 +46,47 @@ public class MergeActivity extends AppCompatActivity {
 
         assignViews();
 
-        mStub.setOnInflateListener(inflateListener);
-        mBtn1.setOnClickListener(clickListener);
-        mBtn2.setOnClickListener(clickListener);
-        mBtn3.setOnClickListener(clickListener);
+//        mStub.setOnInflateListener(inflateListener);
+//        mBtn1.setOnClickListener(clickListener);
+//        mBtn2.setOnClickListener(clickListener);
+//        mBtn3.setOnClickListener(clickListener);
+//
+//        new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                testANR();
+//            }
+//        }).start();
+//
+//        SystemClock.sleep(10);
+//
+//        initView();
+
+        List<Double> test = new ArrayList<>();
+        test.add(2.0);
+        test.add(2.0);test.add(2.0);test.add(5.0);test.add(2.0);test.add(2.0);test.add(2.0);
+
+        List<Double> copy = new ArrayList<>();
+        copy.addAll(test);
+
+        for (Double value : copy) {
+            KLog.e("value is " + value);
+
+            if (5.0 == value) {
+                test.remove(0);
+            }
+        }
+
+
+
+    }
+
+    private synchronized void testANR() {
+        SystemClock.sleep(30 * 1000);
+    }
+
+    private synchronized void initView() {
+
     }
 
     private ViewStub.OnInflateListener inflateListener = new ViewStub.OnInflateListener() {
