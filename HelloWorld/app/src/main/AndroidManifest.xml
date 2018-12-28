@@ -227,7 +227,7 @@
         <receiver android:name=".nov.MyAppWidgetProvider">
             <meta-data
                 android:name="android.appwidget.provider"
-                android:resource="@xml/appwidget_provider_info"></meta-data>
+                android:resource="@xml/appwidget_provider_info" />
 
             <intent-filter>
                 <action android:name="com.example.arthurwang.helloworld.nov.action.CLICK" />
@@ -253,24 +253,48 @@
             android:configChanges="screenSize|orientation"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN" />-->
 
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
 
-        <service android:name=".nov.utils.LocalIntentService"></service>
+        <service android:name=".nov.utils.LocalIntentService" />
 
-        <activity android:name=".nov.MergeActivity"
+        <activity
+            android:name=".nov.MergeActivity"
             android:configChanges="screenSize|orientation"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
 
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
+        </activity>
+        <activity
+            android:name=".one.OneActivity"
+            android:configChanges="screenSize|orientation"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".one.SecondActivity"
+            android:configChanges="screenSize|orientation"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
+            <intent-filter>
+                <action android:name="com.example.arthurwang.helloworld.one.ACTION_START"/>
+                <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
     </application>
