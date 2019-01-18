@@ -4,26 +4,79 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.arthurwang.helloworld.R;
 import com.socks.library.KLog;
 
 import java.util.LinkedList;
+import java.util.concurrent.TimeUnit;
+
+import io.reactivex.Observable;
+import io.reactivex.Observer;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
 
 public class OneActivity extends AppCompatActivity {
 
+    private TextView mTvTextView;
     private Button mBtnPush;
     private Button mBtnWeb;
 
     private void assignViews() {
+        mTvTextView = (TextView) findViewById(R.id.tv_text_view);
         mBtnPush = (Button) findViewById(R.id.btn_push);
         mBtnWeb = (Button) findViewById(R.id.btn_web);
     }
+
+
+
+    private Observer<Long> observer = new Observer<Long>() {
+        Disposable disposable;
+
+        @Override
+        public void onSubscribe(Disposable d) {
+            Log.e("wyn", "onSubscribe");
+
+            Log.e("wyn", "onSubscribe thread is " + Thread.currentThread().getName());
+
+            disposable = d;
+        }
+
+        @Override
+        public void onNext(Long s) {
+            Log.d("wyn", "onNext is " + s);
+
+            Log.e("wyn", "onNext thread is " + Thread.currentThread().getName());
+
+            mTvTextView.setText(s + "");
+
+            if (s == 10) {
+                disposable.dispose();
+            }
+        }
+
+        @Override
+        public void onError(Throwable e) {
+            Log.e("wyn", "onError");
+
+            Log.e("wyn", "onError thread is " + Thread.currentThread().getName());
+        }
+
+        @Override
+        public void onComplete() {
+            Log.e("wyn", "onComplete");
+
+            Log.e("wyn", "onComplete thread is " + Thread.currentThread().getName());
+        }
+    };
 
 
 
@@ -77,8 +130,83 @@ public class OneActivity extends AppCompatActivity {
             }
         });
 
+//        testJust();
 
+//        new Thread() {
+//            @Override
+//            public void run() {
+//                super.run();
+//
+//                testCreate();
+//            }
+//        }.start();
+
+//        testCreate();
+
+//        testInterval();
+
+
+        testTimer();
     }
+
+
+//    private void testJust() {
+//        Observable.just("123", "222", "1243")
+//            .subscribe(this.observer);
+//    }
+//
+//    private void testCreate() {
+//        Observable.create(new ObservableOnSubscribe<String>() {
+//            @Override
+//            public void subscribe(ObservableEmitter<String> emitter) throws Exception {
+//                Log.e("wyn", "ObservableEmitter");
+//
+//                Log.e("wyn", "ObservableEmitter thread is " + Thread.currentThread().getName());
+//
+//
+//                long a = 1;
+//                for (int i = 0; i < 1000000000; i++) {
+//                    a = a + (a + 1);
+//                }
+//
+//                Log.e("wyn", "a is " + a);
+//
+//                emitter.onNext("wang" + a);
+//                emitter.onNext("益南");
+//
+//                emitter.onComplete();
+//            }
+//        }).subscribeOn(Schedulers.io())
+//                .observeOn(AndroidSchedulers.mainThread())
+//                .subscribe(this.observer);
+//    }
+
+    private void testInterval() {
+        Log.e("wyn", "111");
+        Observable.interval(3, TimeUnit.SECONDS)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(this.observer);
+
+        Log.e("wyn", "222");
+    }
+
+    private void testTimer() {
+        Log.e("wyn", "333");
+
+        Observable.timer(3, TimeUnit.SECONDS)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(this.observer);
+
+        Log.e("wyn", "444");
+    }
+
+
+
+
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

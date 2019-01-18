@@ -8,8 +8,9 @@
     android:orientation="vertical">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/tv_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
         android:text="就是不一样啊"/>
 
     <Button
