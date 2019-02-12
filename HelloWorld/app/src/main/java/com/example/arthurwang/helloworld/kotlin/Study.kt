@@ -2,6 +2,7 @@ package com.example.arthurwang.helloworld.kotlin
 
 import java.io.BufferedReader
 import java.util.*
+import kotlin.collections.ArrayList
 
 /**
  * Created by arthurwang on 2019/1/31
@@ -88,10 +89,78 @@ class Study {
         println("wyn is $number")
     }
 
+    fun testString() {
+        val list = listOf(1, 2, 3)
+        println("list is ${joinString(list, ",", "(", ")")}")
+    }
+
+    fun <T>joinString(collection: Collection<T>,
+                      separator: String,
+                      prefix: String,
+                      postfix: String) : String {
+        val result = StringBuilder(prefix)
+
+        for ((index, element) in collection.withIndex()) {
+            if (index > 0) result.append(separator)
+            result.append(element)
+        }
+
+        result.append(postfix)
+
+        return result.toString()
+    }
+
+    fun testRegex() {
+        val string = "12.345-6.A"
+
+        println("string is ${string.split("\\.|-".toRegex())}")
+    }
+
+    fun parsePath(path: String) {
+        val directory = path.substringBeforeLast("/")
+        val fullName = path.substringAfterLast("/")
+        val fileName = fullName.substringBeforeLast(".")
+        val extension = fullName.substringAfterLast(".")
+
+        println("Dir: $directory, name: $fileName, ext: $extension")
+    }
+
 
 }
 
 
 enum class Color {
     RED, ORANGE, YELLOW, GREEN, BLUE, INDIGO, VIOLET,
+}
+
+
+interface Clickable {
+    fun click()
+
+    fun showOff() = println("I'm clickable!")
+}
+
+interface Focusable {
+    fun setFocus(b: Boolean) = println("I ${if (b) "got" else "lost"} focus")
+
+    fun showOff() = println("I'm focusable!")
+}
+
+class Button: Clickable, Focusable {
+    override fun click() {
+        println("click")
+    }
+
+    override fun showOff() {
+        println("Hello")
+    }
+}
+
+interface User {
+    val nickName: String
+}
+
+class DelegatingCollection<T>(innerList: Collection<T> = ArrayList<T>()) : Collection<T> by innerList
+{
+
 }
