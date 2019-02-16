@@ -128,6 +128,8 @@ class KotlinActivity : AppCompatActivity() {
 
     }
 
+    annotation class JsonName(val name: String)
+
     enum class Delivery {STANDARD, EXPEDITED}
 
     class Order(val itemCount: Int)
