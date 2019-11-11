@@ -3,7 +3,7 @@ package com.example.arthurwang.helloworld.nov.utils;
 import android.app.IntentService;
 import android.content.Intent;
 import android.os.SystemClock;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import com.socks.library.KLog;
 

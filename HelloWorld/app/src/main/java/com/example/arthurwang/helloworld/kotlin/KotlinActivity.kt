@@ -1,13 +1,14 @@
 package com.example.arthurwang.helloworld.kotlin
 
+import android.app.Activity
 import android.content.Context
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import android.widget.TextView
 import com.example.arthurwang.helloworld.R
+import com.socks.library.KLog
 import java.io.BufferedReader
 
-class KotlinActivity : AppCompatActivity() {
+class KotlinActivity :  Activity() {
 
     private val study = Study()
 
@@ -123,10 +124,63 @@ class KotlinActivity : AppCompatActivity() {
 
 //        println("ab1c".filter { it in 'a'..'z' })
 
-        val calculator = getShippingCostCalculator(Delivery.EXPEDITED)
-        println("Shipping costs ${calculator(Order(3))}")
+//        val calculator = getShippingCostCalculator(Delivery.EXPEDITED)
+//        println("Shipping costs ${calculator(Order(3))}")
+
+//        val curCalendar = Calendar.getInstance()
+//        curCalendar.add(Calendar.MONTH, -3)
+//        KLog.e("wyn", "curCalendar is ${curCalendar.get(Calendar.MONTH)}")
+
+//        var test: String?
+//
+//
+//        KLog.e("wyn", "111")
+//
+//        test = "wahwah"
+//
+//        KLog.e("wyn", "test is $test")
+//
+//        test.let {
+//            KLog.e("wyn", "it is $it")
+//        }
+
+//        val myTurtle = Trutle()
+//
+//        with(myTurtle) {
+//            penDown()
+//            for (i in 1..4) {
+//                forward(100.0)
+//                turn(90.0)
+//                penUp()
+//            }
+//        }
+
+//        var x = (1 shl 2)
+//        KLog.e("wyn", "x is $x")
+//        x = x and 0x000FF000
+//        KLog.e("wyn", "x is $x")
+
+//        val testArr = arrayOf(1, 2, 3)
+//        for (i in testArr.iterator()) {
+//            KLog.e("wyn", "testArr is $i")
+//        }
+
+//        val aaaArr = Array(5) {
+//            "1"
+//        }
+//        KLog.e("wyn", "aaaArr size is ${aaaArr.size}")
+//
+//        for (i in aaaArr.indices) {
+//            KLog.e("wyn", "i is $i")
+//            val item = aaaArr[i]
+//            KLog.e("wyn", "item is $item")
+//        }
+
+        KLog.e("wyn", 'a' * 3)
+
 
     }
+
 
     annotation class JsonName(val name: String)
 
@@ -204,6 +258,30 @@ class KotlinActivity : AppCompatActivity() {
 
 
 }
+
+
+class Trutle {
+    fun penDown() {
+        KLog.e("wyn", "penDown")
+    }
+
+    fun penUp() {
+        KLog.e("wyn", "penUp")
+    }
+
+    fun turn(degrees: Double) {
+        KLog.e("wyn", "turn degress is $degrees")
+    }
+
+    fun forward(pixels: Double) {
+        KLog.e("wyn", "forward pixels is $pixels")
+    }
+
+}
+
+//operator fun Char.times(count: Int): String {
+//    return toString().repeat(count)
+//}
 
 
 
