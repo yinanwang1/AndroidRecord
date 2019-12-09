@@ -69,11 +69,7 @@ public class HorizontalScrollViewEx extends ViewGroup {
             case MotionEvent.ACTION_MOVE: {
                 int deltaX = x - mLastXIntercept;
                 int deltaY = y - mLastYIntercept;
-                if (Math.abs(deltaX) > Math.abs(deltaY)) {
-                    intercepted = true;
-                } else {
-                    intercepted = false;
-                }
+                intercepted = Math.abs(deltaX) > Math.abs(deltaY);
                 break;
             }
             case MotionEvent.ACTION_UP: {

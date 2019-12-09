@@ -31,9 +31,9 @@ public class MessagerActivity extends AppCompatActivity implements View.OnClickL
     private Button mBtn;
 
     private void assignViews() {
-        mBt = (Button) findViewById(R.id.bt);
-        mLl = (LinearLayout) findViewById(R.id.ll);
-        mBtn = (Button) findViewById(R.id.btn);
+        mBt = findViewById(R.id.bt);
+        mLl = findViewById(R.id.ll);
+        mBtn = findViewById(R.id.btn);
     }
 
 

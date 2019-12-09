@@ -13,7 +13,7 @@ public class SecondActivity extends AppCompatActivity {
     private Button mBtnJump;
 
     private void assignViews() {
-        mBtnJump = (Button) findViewById(R.id.btn_jump);
+        mBtnJump = findViewById(R.id.btn_jump);
     }
 
 

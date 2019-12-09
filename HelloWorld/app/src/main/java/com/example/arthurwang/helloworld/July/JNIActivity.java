@@ -15,7 +15,7 @@ public class JNIActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_jni);
 
-        mTvJni = (TextView) findViewById(R.id.tv_jni);
+        mTvJni = findViewById(R.id.tv_jni);
 
         mTvJni.setText(new MyNdk().getString());
     }

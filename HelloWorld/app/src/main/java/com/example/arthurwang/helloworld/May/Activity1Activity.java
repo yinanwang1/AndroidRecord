@@ -25,7 +25,7 @@ public class Activity1Activity extends Activity {
 
     private static final String ext_name = "name";
 
-    String str = new String("good");
+    String str = "good";
     char[] ch = {'a','b','c'};
 
     @Override
@@ -34,12 +34,12 @@ public class Activity1Activity extends Activity {
         setContentView(R.layout.activity_activity1);
 
         // 初始化视图
-        textview2 = (TextView) findViewById(R.id.textview2);
-        editText1 = (EditText) findViewById(R.id.editText1);
-        button1 = (Button) findViewById(R.id.clickMe);
-        editText2 = (EditText) findViewById(R.id.editText2);
-        button2 = (Button) findViewById(R.id.clickMeToJump);
-        textView3 = (TextView) findViewById(R.id.textview3);
+        textview2 = findViewById(R.id.textview2);
+        editText1 = findViewById(R.id.editText1);
+        button1 = findViewById(R.id.clickMe);
+        editText2 = findViewById(R.id.editText2);
+        button2 = findViewById(R.id.clickMeToJump);
+        textView3 = findViewById(R.id.textview3);
 
         // 添加事件
         editText1.addTextChangedListener(new TextWatcher() {
@@ -101,7 +101,7 @@ public class Activity1Activity extends Activity {
     }
 
 
-    public void change(String str, char ch[]){
+    public void change(String str, char[] ch){
         str = "test ok";
         ch[0]= 'g';
     }

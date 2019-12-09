@@ -5,4 +5,9 @@
     <declare-styleable name="AlphaImageView">
         <attr name="duration"></attr>
     </declare-styleable>
+
+    <declare-styleable name="ToolBar">
+        <attr name="buttonNum" format="integer"/>
+        <attr name="itemBackground" format="reference|color"/>
+    </declare-styleable>
 </resources>

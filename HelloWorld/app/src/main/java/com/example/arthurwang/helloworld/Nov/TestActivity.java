@@ -55,9 +55,9 @@ public class TestActivity extends AppCompatActivity {
     private EditText mEditText;
 
     private void assignViews() {
-        mButton1 = (Button) findViewById(R.id.button1);
-        mButton2 = (TestButton) findViewById(R.id.button2);
-        mEditText = (EditText) findViewById(R.id.editText);
+        mButton1 = findViewById(R.id.button1);
+        mButton2 = findViewById(R.id.button2);
+        mEditText = findViewById(R.id.editText);
     }
 
 

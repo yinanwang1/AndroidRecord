@@ -31,9 +31,9 @@ public class OneActivity extends AppCompatActivity {
     private Button mBtnWeb;
 
     private void assignViews() {
-        mTvTextView = (TextView) findViewById(R.id.tv_text_view);
-        mBtnPush = (Button) findViewById(R.id.btn_push);
-        mBtnWeb = (Button) findViewById(R.id.btn_web);
+        mTvTextView = findViewById(R.id.tv_text_view);
+        mBtnPush = findViewById(R.id.btn_push);
+        mBtnWeb = findViewById(R.id.btn_web);
     }
 
 

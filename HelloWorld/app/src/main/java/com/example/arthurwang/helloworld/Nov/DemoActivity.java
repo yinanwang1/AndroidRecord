@@ -37,10 +37,10 @@ public class DemoActivity extends Activity {
     private ImageView mIvLevel;
 
     private void assignViews() {
-        mContainer = (HorizontalScrollViewEx) findViewById(R.id.container);
-        mCircleView1 = (CircleView) findViewById(R.id.circleView1);
-        mBtnRemoteView = (Button) findViewById(R.id.btn_remote_view);
-        mIvLevel = (ImageView) findViewById(R.id.iv_level);
+        mContainer = findViewById(R.id.container);
+        mCircleView1 = findViewById(R.id.circleView1);
+        mBtnRemoteView = findViewById(R.id.btn_remote_view);
+        mIvLevel = findViewById(R.id.iv_level);
     }
 
 
@@ -118,14 +118,14 @@ public class DemoActivity extends Activity {
 
     private void initView() {
         LayoutInflater inflater = getLayoutInflater();
-        mListContainer = (HorizontalScrollViewEx) findViewById(R.id.container);
+        mListContainer = findViewById(R.id.container);
         final int screenWidth = MyUtils.getScreenMetrics(this).widthPixels;
         final int screenHeight = MyUtils.getScreenMetrics(this).heightPixels;
         for (int i = 0; i < 3; i++) {
             ViewGroup layout = (ViewGroup) inflater.inflate(
                     R.layout.content_layout, mListContainer, false);
             layout.getLayoutParams().width = screenWidth;
-            TextView textView = (TextView) layout.findViewById(R.id.title);
+            TextView textView = layout.findViewById(R.id.title);
             textView.setText("page " + (i + 1));
             layout.setBackgroundColor(Color.rgb(255 / (i + 1), 255 / (i + 1), 0));
             createList(layout);
@@ -134,7 +134,7 @@ public class DemoActivity extends Activity {
     }
 
     private void createList(ViewGroup layout) {
-        ListView listView = (ListView) layout.findViewById(R.id.list);
+        ListView listView = layout.findViewById(R.id.list);
         ArrayList<String> datas = new ArrayList<String>();
         for (int i = 0; i < 50; i++) {
             datas.add("name " + i);

@@ -26,7 +26,7 @@ public class NFCActivity extends Activity implements NfcAdapter.CreateNdefMessag
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nfc);
 
-        promt = (TextView) findViewById(R.id.promt);
+        promt = findViewById(R.id.promt);
         nfcAdapter = NfcAdapter.getDefaultAdapter(this);
 
         if (null == nfcAdapter)
@@ -52,7 +52,7 @@ public class NFCActivity extends Activity implements NfcAdapter.CreateNdefMessag
     protected void onResume() {
         super.onResume();
 
-        if (nfcAdapter.ACTION_TECH_DISCOVERED.equals(getIntent().getAction()))
+        if (NfcAdapter.ACTION_TECH_DISCOVERED.equals(getIntent().getAction()))
         {
             processIntent(getIntent());
         }

@@ -40,7 +40,6 @@
         android:theme="@style/AppTheme">
         <activity android:name=".kotlin.KotlinActivity"
             android:configChanges="screenSize|orientation"
-            android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

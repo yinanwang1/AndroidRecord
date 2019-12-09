@@ -18,8 +18,8 @@ public class NovActivity extends AppCompatActivity {
     private Button mBtnCreate;
 
     private void assignViews() {
-        mEtTest = (EditText) findViewById(R.id.et_test);
-        mBtnCreate = (Button) findViewById(R.id.btn_create);
+        mEtTest = findViewById(R.id.et_test);
+        mBtnCreate = findViewById(R.id.btn_create);
     }
 
 

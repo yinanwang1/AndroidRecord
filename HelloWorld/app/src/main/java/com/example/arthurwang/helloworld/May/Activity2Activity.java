@@ -25,9 +25,9 @@ public class Activity2Activity extends Activity {
         setContentView(R.layout.activity_activity2);
 
         // 初始化视图
-        textView = (TextView) findViewById(R.id.textview);
-        editText = (EditText) findViewById(R.id.editText);
-        button = (Button) findViewById(R.id.backBtn);
+        textView = findViewById(R.id.textview);
+        editText = findViewById(R.id.editText);
+        button = findViewById(R.id.backBtn);
 
 
         // 设置发送过来的内容

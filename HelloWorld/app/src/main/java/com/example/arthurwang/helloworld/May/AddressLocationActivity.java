@@ -53,12 +53,12 @@ public class AddressLocationActivity extends Activity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_address_location);
 
-        mapView = (MapView) findViewById(R.id.map);
+        mapView = findViewById(R.id.map);
         mapView.onCreate(savedInstanceState);
         init();
 
-        navBn = (Button) findViewById(R.id.loc);
-        targetAddressEt = (EditText) findViewById(R.id.address);
+        navBn = findViewById(R.id.loc);
+        targetAddressEt = findViewById(R.id.address);
 
         navBn.setOnClickListener(this);
 

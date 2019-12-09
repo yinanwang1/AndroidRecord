@@ -29,12 +29,12 @@ public class GeocodeSearchActivity extends Activity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_geocode_search);
 
-        parseBn = (Button) findViewById(R.id.parse);
-        reverseBn = (Button) findViewById(R.id.reverse);
-        etLng = (EditText) findViewById(R.id.lng);
-        etLat = (EditText) findViewById(R.id.lat);
-        etAddress = (EditText) findViewById(R.id.address);
-        etResult = (EditText) findViewById(R.id.result);
+        parseBn = findViewById(R.id.parse);
+        reverseBn = findViewById(R.id.reverse);
+        etLng = findViewById(R.id.lng);
+        etLat = findViewById(R.id.lat);
+        etAddress = findViewById(R.id.address);
+        etResult = findViewById(R.id.result);
 
         parseBn.setOnClickListener(this);
         reverseBn.setOnClickListener(this);

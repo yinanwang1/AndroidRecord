@@ -26,8 +26,8 @@ public class HandlerActivity extends AppCompatActivity {
     private Button mBtnClick;
 
     private void assignViews() {
-        mTvTextView = (TextView) findViewById(R.id.tv_text_view);
-        mBtnClick = (Button) findViewById(R.id.btn_click);
+        mTvTextView = findViewById(R.id.tv_text_view);
+        mBtnClick = findViewById(R.id.btn_click);
     }
 
 

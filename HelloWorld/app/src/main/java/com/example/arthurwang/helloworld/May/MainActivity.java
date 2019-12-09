@@ -41,12 +41,12 @@ public class MainActivity extends Activity
         setContentView(R.layout.activity_main);
 
         locationManager = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
-        mapView = (MapView)findViewById(R.id.map);
+        mapView = findViewById(R.id.map);
         mapView.onCreate(savedInstanceState);
 
         init();
 
-        RadioButton rb = (RadioButton) findViewById(R.id.gps);
+        RadioButton rb = findViewById(R.id.gps);
 
         rb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -99,9 +99,9 @@ public class MainActivity extends Activity
         });
 
 
-        Button bn = (Button) findViewById(R.id.loc);
-        final TextView latTv = (TextView) findViewById(R.id.lat);
-        final TextView lngTv = (TextView) findViewById(R.id.lng);
+        Button bn = findViewById(R.id.loc);
+        final TextView latTv = findViewById(R.id.lat);
+        final TextView lngTv = findViewById(R.id.lng);
 
         bn.setOnClickListener(new View.OnClickListener() {
             @Override

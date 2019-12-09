@@ -1,6 +1,7 @@
 package com.example.arthurwang.helloworld.aug;
 
 import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.arthurwang.helloworld.R;
@@ -24,14 +25,14 @@ public class AugActivity extends AppCompatActivity {
 
     private void test() {
         String string = "wyn";
-        byte str[] =  string.getBytes();
-        byte output[] = new byte[string.length() * 3 + 1];
+        byte[] str = string.getBytes();
+        byte[] output = new byte[string.length() * 3 + 1];
 
         byteToHex(str, output, str.length);
 
         KLog.e("wyn", "output is " + output.toString());
 
-        byte otherOutPut[] = new byte[string.length()];
+        byte[] otherOutPut = new byte[string.length()];
 
         hexToByte(output, otherOutPut, output.length);
 
@@ -65,7 +66,7 @@ public class AugActivity extends AppCompatActivity {
     }
 
     // byte 转为16机制
-    public void byteToHex(byte inPut[], byte outPut[], int len)
+    public void byteToHex(byte[] inPut, byte[] outPut, int len)
     {
         int i = len, j = 0, tmp;
         for (i = 0; i < len; i++)
@@ -118,7 +119,7 @@ public class AugActivity extends AppCompatActivity {
 
     }
 
-    public static void hexToByte(byte input[], byte outPut[], int len)
+    public static void hexToByte(byte[] input, byte[] outPut, int len)
     {
         int i, j =0;
         for (i = 0; i < len; i++)

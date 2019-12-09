@@ -43,14 +43,14 @@ public class MergeActivity extends AppCompatActivity {
     private EditText mEtTestThread;
 
     private void assignViews() {
-        mInflatedStart = (LinearLayout) findViewById(R.id.inflatedStart);
-        mStub = (ViewStub) findViewById(R.id.stub);
-        mBtn1 = (Button) findViewById(R.id.btn1);
-        mBtn2 = (Button) findViewById(R.id.btn2);
-        mBtn3 = (Button) findViewById(R.id.btn3);
-        mTvHandler = (TextView) findViewById(R.id.tv_handler);
-        mBtnStartThread = (Button) findViewById(R.id.btn_start_thread);
-        mEtTestThread = (EditText) findViewById(R.id.et_test_thread);
+        mInflatedStart = findViewById(R.id.inflatedStart);
+        mStub = findViewById(R.id.stub);
+        mBtn1 = findViewById(R.id.btn1);
+        mBtn2 = findViewById(R.id.btn2);
+        mBtn3 = findViewById(R.id.btn3);
+        mTvHandler = findViewById(R.id.tv_handler);
+        mBtnStartThread = findViewById(R.id.btn_start_thread);
+        mEtTestThread = findViewById(R.id.et_test_thread);
     }
 
 
