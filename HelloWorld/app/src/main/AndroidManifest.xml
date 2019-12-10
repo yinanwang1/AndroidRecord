@@ -38,7 +38,10 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
-        <activity android:name=".kotlin.KotlinActivity"
+        <activity android:name=".kotlin.TwoActivity"></activity>
+        <activity android:name=".kotlin.OneActivity" />
+        <activity
+            android:name=".kotlin.KotlinActivity"
             android:configChanges="screenSize|orientation"
             android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
             <intent-filter>
@@ -46,8 +49,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <!-- 启用高德地图服务 -->
+        </activity> <!-- 启用高德地图服务 -->
         <meta-data
             android:name="com.amap.api.v2.apikey"
             android:value="8c9af40c6c445614a448026cfcbce2bb" />
@@ -278,22 +280,26 @@
             android:configChanges="screenSize|orientation"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN" />-->
 
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
         <activity
             android:name=".one.SecondActivity"
             android:configChanges="screenSize|orientation"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
-            <!--<intent-filter>-->
-                <!--<action android:name="com.example.arthurwang.helloworld.one.ACTION_START" />-->
 
-                <!--<category android:name="android.intent.category.DEFAULT" />-->
-            <!--</intent-filter>-->
+            <!-- <intent-filter> -->
+            <!-- <action android:name="com.example.arthurwang.helloworld.one.ACTION_START" /> -->
+
+
+            <!-- <category android:name="android.intent.category.DEFAULT" /> -->
+            <!-- </intent-filter> -->
         </activity>
     </application>
 
