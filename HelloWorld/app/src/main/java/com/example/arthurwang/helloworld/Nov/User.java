@@ -3,11 +3,15 @@ package com.example.arthurwang.helloworld.nov;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import androidx.annotation.NonNull;
+
+import java.io.Serializable;
+
 /**
  * Created by arthurwang on 2018/11/21
  */
 
-public class User implements Parcelable {
+public class User implements Parcelable, Serializable {
 
 
     public int userId;
@@ -56,4 +60,10 @@ public class User implements Parcelable {
             return new User[size];
         }
     };
+
+    @NonNull
+    @Override
+    public String toString() {
+        return String.format("User:{userId:%s, userName:%s, isMale:%s}", userId, userName, isMale);
+    }
 }
