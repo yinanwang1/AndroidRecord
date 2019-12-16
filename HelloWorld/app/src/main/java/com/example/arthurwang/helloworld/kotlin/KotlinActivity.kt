@@ -14,7 +14,7 @@ class KotlinActivity :  Activity() {
         setContentView(R.layout.activity_kotlin)
 
         btn_click.setOnClickListener {
-            val intent = Intent(this, OneActivity::class.java)
+            val intent = Intent(this, ProviderActivity::class.java)
             this.startActivity(intent)
         }
     }

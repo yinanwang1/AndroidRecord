@@ -8,6 +8,7 @@ import android.content.Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS
 import android.content.ServiceConnection
 import android.os.*
 import com.example.arthurwang.helloworld.R
+import com.example.arthurwang.helloworld.nov.MyConstants
 import com.example.arthurwang.helloworld.nov.User
 import com.example.arthurwang.helloworld.nov.utils.MyUtils
 import com.socks.library.KLog
@@ -76,6 +77,7 @@ class OneActivity : Activity() {
             val data = Bundle()
             data.putString("msg", "Hello, this is client.")
             msg.data = data
+            msg.replyTo = mGetReplyMessenger
             try {
                 mService!!.send(msg)
                 KLog.e("wyn", "send")
@@ -93,5 +95,20 @@ class OneActivity : Activity() {
         unbindService(mConnection)
 
         super.onDestroy()
+    }
+
+    private val mGetReplyMessenger = Messenger(MessengerHandler())
+
+}
+
+class MessengerHandler: Handler() {
+    override fun handleMessage(msg: Message) {
+        if (msg.what == MyConstants.MSG_FROM_SERVICE) {
+            KLog.e("wyn", "receive msg from Service:" + msg.data.getString("replay"))
+
+            return
+        }
+
+        super.handleMessage(msg)
     }
 }
