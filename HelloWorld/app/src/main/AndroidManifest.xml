@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.arthurwang.helloworld">
+
     <!-- To auto-complete the email text field in the login form with the user's emails -->
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
@@ -38,7 +39,22 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
-        <activity android:name=".kotlin.ViewActivity"></activity>
+        <receiver android:name=".Art.MyAppWidgetProvider">
+            <intent-filter>
+                <action android:name="com.example.arthurwang.helloworld.Art.action.CLICK" />
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/my_app_widget_provider_info" />
+        </receiver>
+
+        <activity android:name=".Art.NotifyActivity" />
+        <activity android:name=".kotlin.CircleActivity" />
+        <activity android:name=".kotlin.ScrollActivity" />
+        <activity android:name=".kotlin.ScrollerActivity" />
+        <activity android:name=".kotlin.ViewActivity" />
         <activity android:name=".kotlin.BinderPoolActivity" />
 
         <service

@@ -8,4 +8,18 @@
     android:orientation="vertical"
     android:id="@+id/ll_view">
 
+    <TextView
+        android:id="@+id/tv_wahahha"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_margin="15dp"
+        android:background="@color/c1"
+        android:text="就是我，不一样的演说asfsfsfasf"/>
+
+    <Button
+        android:id="@+id/btn_move"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="动一动"/>
+
 </LinearLayout>

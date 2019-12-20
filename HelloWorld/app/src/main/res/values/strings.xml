@@ -58,5 +58,7 @@
     <string name="activity2">我是Activity2</string>
     <string name="title_activity_ble_test">BleTestActivity</string>
     <string name="title_activity_jni">JNIActivity</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
 
 </resources>
