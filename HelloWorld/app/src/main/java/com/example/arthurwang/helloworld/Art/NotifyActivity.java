@@ -17,6 +17,7 @@ import com.socks.library.KLog;
 public class NotifyActivity extends Activity {
 
     private Button mMBtnNotify;
+    private int flagId = 1;
 
     private void assignViews() {
         mMBtnNotify = (Button) findViewById(R.id.mBtnNotify);
@@ -54,8 +55,10 @@ public class NotifyActivity extends Activity {
 
                 NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
                 if (null != manager) {
-                    manager.notify(2, notification);
+                    manager.notify(flagId, notification);
                     KLog.e("111");
+
+                    flagId++;
                 }
 
 
