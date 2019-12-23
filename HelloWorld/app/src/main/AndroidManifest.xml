@@ -39,6 +39,12 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
+
+        <activity
+            android:name=".Art.RemoteViewActivity"
+            android:process=":remoteView"
+            android:screenOrientation="portrait" />
+
         <receiver android:name=".Art.MyAppWidgetProvider">
             <intent-filter>
                 <action android:name="com.example.arthurwang.helloworld.Art.action.CLICK" />

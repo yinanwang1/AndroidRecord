@@ -8,4 +8,7 @@ public class MyConstants {
     public static final int MSG_FROM_CLIENT = 1000;
 
     public static final int MSG_FROM_SERVICE = 2000;
+
+    public static final String REMOTE_ACTION = "com.ryg.chapter.action_REMOTE";
+    public static final String EXTRA_REMOTE_VIEWS = "extra_remoteViews";
 }
