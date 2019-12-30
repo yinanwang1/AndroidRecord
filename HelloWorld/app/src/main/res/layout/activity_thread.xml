@@ -4,21 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Art.NotifyActivity"
+    tools:context=".Art.ThreadActivity"
     android:orientation="vertical">
 
-    <Button
-        android:id="@+id/mBtnNotify"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:text="发送通知"/>
-
     <TextView
-        android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:text="阿拉善多了几分老是觉得了放假暗示法"/>
+        android:text="我就是我，不一样的烟火" />
 
+    <Button
+        android:id="@+id/btn_click_me"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="点我"/>
 
 </LinearLayout>

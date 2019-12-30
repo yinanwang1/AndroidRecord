@@ -1,5 +1,7 @@
 package com.example.arthurwang.helloworld.Art;
 
+import android.animation.IntEvaluator;
+import android.animation.ValueAnimator;
 import android.app.Activity;
 import android.app.PendingIntent;
 import android.content.Intent;
@@ -13,6 +15,7 @@ import android.widget.TextView;
 
 import com.example.arthurwang.helloworld.R;
 import com.example.arthurwang.helloworld.nov.MyConstants;
+import com.socks.library.KLog;
 
 public class NotifyActivity extends Activity {
 
@@ -26,7 +29,12 @@ public class NotifyActivity extends Activity {
         mButton = (TextView) findViewById(R.id.button);
     }
 
+    @Override
+    public void finish() {
+        super.finish();
 
+        overridePendingTransition(R.anim.enter_anim, R.anim.exit_anim);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,10 +75,13 @@ public class NotifyActivity extends Activity {
 
 //                justDoIt();
 
+                doAnimation();
+
 
 
             }
         });
+
 
         int colorValue = Color.parseColor("#00FF00");
         CustomDrawable customDrawable = new CustomDrawable(colorValue);
@@ -90,4 +101,68 @@ public class NotifyActivity extends Activity {
         intent.putExtra(MyConstants.EXTRA_REMOTE_VIEWS, remoteViews);
         sendBroadcast(intent);
     }
+
+    private void doAnimation() {
+//        Animation animation = AnimationUtils.loadAnimation(this, R.anim.animation_test);
+//        mMBtnNotify.startAnimation(animation);
+
+//        Rotated3dAnimation rotated3dAnimation = new Rotated3dAnimation(0, 300, 200, 200, 100, false);
+//        rotated3dAnimation.setDuration(10000);
+//        mMBtnNotify.startAnimation(rotated3dAnimation);
+
+//        mMBtnNotify.setBackgroundResource(R.drawable.frame_animation);
+//        AnimationDrawable drawable = (AnimationDrawable) mMBtnNotify.getBackground();
+//        drawable.start();
+
+//        AnimatorSet set = (AnimatorSet) AnimatorInflater.loadAnimator(NotifyActivity.this, R.animator.property_animator);
+//        set.setTarget(mMBtnNotify);
+//        set.setDuration(1000);
+//        set.start();
+
+//        ViewWrapper viewWrapper = new ViewWrapper(mMBtnNotify);
+//
+//        ObjectAnimator.ofInt(viewWrapper, "width", 500)
+//                .setDuration(2000).start();
+
+        performAnimate(mMBtnNotify, mMBtnNotify.getWidth(), 500);
+
+    }
+
+    private static class ViewWrapper {
+        private View mTarget;
+
+        public ViewWrapper(View target) {
+            mTarget = target;
+        }
+
+        public int getWidth() {
+            return mTarget.getLayoutParams().width;
+        }
+
+        public void setWidth(int width) {
+            mTarget.getLayoutParams().width = width;
+            mTarget.requestLayout();
+        }
+    }
+
+    private void performAnimate(final View target, final int start, final int end) {
+        ValueAnimator valueAnimator = ValueAnimator.ofInt(1, 100);
+        valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            private IntEvaluator mEvaluator = new IntEvaluator();
+
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                int currentValue = (Integer) animation.getAnimatedValue();
+                KLog.e("currentValue is " + currentValue);
+
+                float fraction = animation.getAnimatedFraction();
+                target.getLayoutParams().width = mEvaluator.evaluate(fraction, start, end);
+                target.requestLayout();
+            }
+        });
+
+        valueAnimator.setDuration(5000).start();
+    }
+
+
 }
