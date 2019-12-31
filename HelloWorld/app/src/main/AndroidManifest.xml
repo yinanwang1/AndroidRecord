@@ -37,7 +37,9 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
-        <activity android:name=".fragment.FragmentTestActivity"></activity>
+        <activity android:name=".fragment.MySqlActivity"></activity>
+        <activity android:name=".fragment.FileSaveActivity" />
+        <activity android:name=".fragment.FragmentTestActivity" />
         <activity android:name=".Art.ThreadActivity" />
         <activity android:name=".Art.WindowActivity" />
         <activity

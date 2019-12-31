@@ -4,7 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import com.example.arthurwang.helloworld.R
-import com.example.arthurwang.helloworld.fragment.FragmentTestActivity
+import com.example.arthurwang.helloworld.fragment.MySqlActivity
 import kotlinx.android.synthetic.main.activity_kotlin.*
 
 
@@ -15,7 +15,7 @@ class KotlinActivity :  Activity() {
         setContentView(R.layout.activity_kotlin)
 
         btn_click.setOnClickListener {
-            val intent = Intent(this, FragmentTestActivity::class.java)
+            val intent = Intent(this, MySqlActivity::class.java)
             this.startActivity(intent)
             overridePendingTransition(R.anim.enter_anim, R.anim.exit_anim)
         }

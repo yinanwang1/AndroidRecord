@@ -95,5 +95,7 @@ dependencies {
 
 //  anko __END__
 
+    api 'org.litepal.android:java:3.0.0'
+
 
 }
