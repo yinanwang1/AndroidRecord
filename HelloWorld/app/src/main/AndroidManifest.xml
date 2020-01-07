@@ -27,17 +27,32 @@
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" /> <!-- Android6.0 蓝牙扫描才需要 -->
     <uses-permission-sdk-23 android:name="android.permission.ACCESS_COARSE_LOCATION" /> <!-- NFC -->
     <uses-permission android:name="android.permission.NFC" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <uses-feature
         android:name="android.hardware.nfc"
         android:required="true" />
 
     <application
+        android:name="org.litepal.LitePalApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
-        <activity android:name=".fragment.MySqlActivity"></activity>
+        <activity android:name=".Learn.AnnotationActivity"></activity>
+        <activity android:name=".Learn.LearnKotlinActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".fragment.MaterialActivity"
+            android:label="Fruits" />
+        <activity android:name=".fragment.CallActivity" />
+        <activity android:name=".fragment.MySqlActivity" />
         <activity android:name=".fragment.FileSaveActivity" />
         <activity android:name=".fragment.FragmentTestActivity" />
         <activity android:name=".Art.ThreadActivity" />
@@ -92,13 +107,14 @@
         <activity android:name=".kotlin.OneActivity" />
         <activity
             android:name=".kotlin.KotlinActivity"
-            android:configChanges="screenSize|orientation"
-            android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:configChanges="screenSize|orientation">
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+<!--             <intent-filter>-->
+<!--             <action android:name="android.intent.action.MAIN" />-->
+
+
+<!--             <category android:name="android.intent.category.LAUNCHER" />-->
+<!--             </intent-filter>-->
         </activity> <!-- 启用高德地图服务 -->
         <meta-data
             android:name="com.amap.api.v2.apikey"

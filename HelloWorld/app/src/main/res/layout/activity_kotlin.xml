@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".kotlin.KotlinActivity"
     android:id="@+id/ll_test"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:fitsSystemWindows="true">
 
     <TextView
         android:id="@+id/tv_hello_world"
