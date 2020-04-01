@@ -8,7 +8,8 @@
 
     <com.example.arthurwang.helloworld.nov.ui.MyView
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_below="@+id/button1"/>
 
     <Button
         android:id="@+id/button1"

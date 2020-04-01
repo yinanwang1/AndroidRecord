@@ -21,6 +21,12 @@ android {
             jni.srcDirs = []
             jniLibs.srcDir "src/main/libs"
         }
+
+        kotlin {
+            experimental {
+                coroutines 'enable'
+            }
+        }
     }
     buildTypes {
         release {
@@ -96,6 +102,10 @@ dependencies {
 //  anko __END__
 
     api 'org.litepal.android:java:3.0.0'
+
+//    协程
+    api 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.2.1'
+    api 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.1.1'
 
 
 }
