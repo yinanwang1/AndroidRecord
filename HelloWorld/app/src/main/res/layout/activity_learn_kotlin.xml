@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -15,25 +15,37 @@
         android:textSize="30sp"/>
 
     <Button
+        android:id="@+id/mBtnReset"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="恢复"
+        android:layout_marginTop="10dp"/>
+
+    <Button
         android:id="@+id/mBtnClick"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="点我啊"
-        android:layout_below="@+id/mTVHello"
         android:layout_marginTop="10dp"/>
 
     <ImageView
         android:id="@+id/mImageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/bomb5"
-        android:layout_below="@id/mBtnClick"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/bomb5"/>
+
+<!--    <View-->
+<!--        android:id="@+id/mViewAnimator"-->
+<!--        android:layout_width="200dp"-->
+<!--        android:layout_height="200dp"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:background="@color/reveal_color"/>-->
+
+    <com.example.arthurwang.helloworld.Learn.DefineView
+        android:id="@+id/mDView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_marginTop="10dp"/>
 
-<!--    <com.example.arthurwang.helloworld.Learn.DefineView-->
-<!--        android:id="@+id/mDView"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:layout_marginTop="150dp"/>-->
-
-</RelativeLayout>
+</LinearLayout>
