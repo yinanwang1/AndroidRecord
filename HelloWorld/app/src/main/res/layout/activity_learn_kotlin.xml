@@ -28,12 +28,12 @@
         android:text="点我啊"
         android:layout_marginTop="10dp"/>
 
-    <ImageView
-        android:id="@+id/mImageView"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="10dp"
-        android:src="@drawable/bomb5"/>
+<!--    <ImageView-->
+<!--        android:id="@+id/mImageView"-->
+<!--        android:layout_width="100dp"-->
+<!--        android:layout_height="100dp"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:src="@drawable/bomb5"/>-->
 
 <!--    <View-->
 <!--        android:id="@+id/mViewAnimator"-->
@@ -42,10 +42,38 @@
 <!--        android:layout_marginTop="20dp"-->
 <!--        android:background="@color/reveal_color"/>-->
 
-    <com.example.arthurwang.helloworld.Learn.DefineView
-        android:id="@+id/mDView"
+<!--    <com.example.arthurwang.helloworld.Learn.DefineView-->
+<!--        android:id="@+id/mDView"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="100dp"-->
+<!--        android:layout_marginTop="10dp"/>-->
+
+    <LinearLayout
+        android:id="@+id/mLLMeasure"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/c1">
+
+        <com.example.arthurwang.helloworld.Learn.MeasureImageView
+            android:id="@+id/mMeasureImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+
+    <SeekBar
+        android:id="@+id/mSeekBar1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="10dp"/>
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:max="600"/>
+
+    <SeekBar
+        android:id="@+id/mSeekBar2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:max="600"/>
 
 </LinearLayout>

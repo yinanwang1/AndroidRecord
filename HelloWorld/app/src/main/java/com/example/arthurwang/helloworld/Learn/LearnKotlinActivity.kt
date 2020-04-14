@@ -2,19 +2,27 @@ package com.example.arthurwang.helloworld.Learn
 
 import android.animation.*
 import android.app.Activity
+import android.graphics.ColorMatrix
+import android.graphics.ColorMatrixColorFilter
+import android.graphics.Paint
 import android.graphics.PointF
 import android.os.Bundle
+import android.view.View.LAYER_TYPE_HARDWARE
 import android.view.animation.*
+import android.widget.SeekBar
 import androidx.interpolator.view.animation.FastOutLinearInInterpolator
 import com.example.arthurwang.helloworld.R
 import com.socks.library.KLog
+import kotlinx.android.synthetic.main.activity_geocode_search.*
 import kotlinx.android.synthetic.main.activity_learn_kotlin.*
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import org.jetbrains.anko.backgroundColor
 import org.jetbrains.anko.sdk27.coroutines.onClick
+import java.lang.StringBuilder
 import java.nio.file.Path
+import java.time.temporal.Temporal
 import java.util.concurrent.Executors
 import java.util.concurrent.TimeUnit
 import kotlin.concurrent.thread
@@ -65,21 +73,62 @@ class LearnKotlinActivity : Activity() {
 //            animatorSet.start()
 
 
-            val keyframe1 = Keyframe.ofFloat(0F, 0F)
-            val keyframe2 = Keyframe.ofFloat(0.5F, 100F)
-            val keyframe3 = Keyframe.ofFloat(1F, 80F)
-            val holder = PropertyValuesHolder.ofKeyframe("progress", keyframe1, keyframe2, keyframe3)
-
-            val animator = ObjectAnimator.ofPropertyValuesHolder(mDView, holder)
-            animator.duration = 5000
-            animator.start()
+//            val colorMatrix = ColorMatrix()
+//            colorMatrix.setSaturation(0F)
+//
+//            val paint = Paint()
+//            paint.colorFilter = ColorMatrixColorFilter(colorMatrix)
+//
+//            mImageView.setLayerType(LAYER_TYPE_HARDWARE, paint)
+//
+//
+//            val keyframe1 = Keyframe.ofFloat(0F, 0F)
+//            val keyframe2 = Keyframe.ofFloat(0.5F, 100F)
+//            val keyframe3 = Keyframe.ofFloat(1F, 80F)
+//            val holder = PropertyValuesHolder.ofKeyframe("progress", keyframe1, keyframe2, keyframe3)
+//
+//            val animator = ObjectAnimator.ofPropertyValuesHolder(mDView, holder)
+//            animator.duration = 5000
+//            animator.start()
         }
+
+        mSeekBar1.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
+                changeLLFrame(progress, mSeekBar2.progress)
+            }
+
+            override fun onStartTrackingTouch(seekBar: SeekBar?) {
+                printMessage("onStartTrackingTouch")
+            }
+
+            override fun onStopTrackingTouch(seekBar: SeekBar?) {
+                printMessage("onStopTrackingTouch")
+            }
+        })
+
+        mSeekBar2.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
+                changeLLFrame(mSeekBar1.progress, progress)
+            }
+
+            override fun onStartTrackingTouch(seekBar: SeekBar?) {
+                printMessage("onStartTrackingTouch")
+            }
+
+            override fun onStopTrackingTouch(seekBar: SeekBar?) {
+                printMessage("onStopTrackingTouch")
+            }
+        })
+
     }
 
+    private fun changeLLFrame(width: Int, height: Int) {
+        var temporal = mLLMeasure.layoutParams
+        temporal.width = width
+        temporal.height = height
 
-
-
-
+        mLLMeasure.layoutParams = temporal
+    }
 
 
 }
