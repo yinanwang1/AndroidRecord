@@ -10,4 +10,11 @@
         <attr name="buttonNum" format="integer"/>
         <attr name="itemBackground" format="reference|color"/>
     </declare-styleable>
+
+
+    <declare-styleable name="TestView">
+        <attr name="text" format="string" />
+        <attr name="testAttr" format="integer" />
+    </declare-styleable>
+
 </resources>

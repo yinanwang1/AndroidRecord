@@ -49,50 +49,46 @@
 <!--        android:layout_marginTop="10dp"/>-->
 
 
-    <SeekBar
-        android:id="@+id/mSeekBar1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:max="600"/>
+<!--    <SeekBar-->
+<!--        android:id="@+id/mSeekBar1"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:max="600"/>-->
 
-    <SeekBar
-        android:id="@+id/mSeekBar2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:max="600"/>
+<!--    <SeekBar-->
+<!--        android:id="@+id/mSeekBar2"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:max="600"/>-->
 
 
-    <LinearLayout
-        android:id="@+id/mLLMeasure"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/c2"
-        android:orientation="horizontal">
-
-        <com.example.arthurwang.helloworld.Learn.MeasureImageView
-            android:id="@+id/mMeasureImageView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ajax"
-            android:scaleType="centerCrop"/>
+<!--    <LinearLayout-->
+<!--        android:id="@+id/mLLMeasure"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:background="@color/c2"-->
+<!--        android:orientation="horizontal">-->
 
 <!--        <com.example.arthurwang.helloworld.Learn.MeasureImageView-->
-<!--            android:id="@+id/mMeasureImageView1"-->
-<!--            android:layout_width="0dp"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:layout_weight="1"-->
-<!--            android:src="@drawable/baiyang"-->
+<!--            android:id="@+id/mMeasureImageView"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:src="@drawable/ajax"-->
 <!--            android:scaleType="centerCrop"/>-->
 
-<!--        <com.example.arthurwang.helloworld.Learn.MeasureImageView-->
-<!--            android:id="@+id/mMeasureImageView2"-->
-<!--            android:layout_width="0dp"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:layout_weight="1"-->
-<!--            android:src="@drawable/bomb5"/>-->
+<!--    </LinearLayout>-->
 
-    </LinearLayout>
+<!--    <com.example.arthurwang.helloworld.Learn.TestView-->
+<!--        android:layout_width="100dp"-->
+<!--        android:layout_height="200dp"-->
+<!--        app:testAttr="520"-->
+<!--        app:text="美丽新世界"-->
+<!--        android:background="@color/c2"/>-->
+
+    <com.example.arthurwang.helloworld.Learn.RectView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 
 </LinearLayout>

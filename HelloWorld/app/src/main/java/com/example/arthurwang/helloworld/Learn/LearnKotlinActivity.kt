@@ -2,6 +2,7 @@ package com.example.arthurwang.helloworld.Learn
 
 import android.animation.*
 import android.app.Activity
+import android.content.Intent
 import android.graphics.ColorMatrix
 import android.graphics.ColorMatrixColorFilter
 import android.graphics.Paint
@@ -40,6 +41,9 @@ class LearnKotlinActivity : Activity() {
         setContentView(R.layout.activity_learn_kotlin)
 
         mBtnReset.onClick {
+            val intent = Intent(this@LearnKotlinActivity, LearnKotlinActivity::class.java)
+            this@LearnKotlinActivity.startActivity(intent)
+
 //            val holder1 = PropertyValuesHolder.ofFloat("ScaleX", 1F)
 //            val holder2 = PropertyValuesHolder.ofFloat("ScaleY", 1F)
 //            val holder3 = PropertyValuesHolder.ofFloat("alpha", 1F)
@@ -92,43 +96,43 @@ class LearnKotlinActivity : Activity() {
 //            animator.start()
         }
 
-        mSeekBar1.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
-            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-                changeLLFrame(progress, mSeekBar2.progress)
-            }
-
-            override fun onStartTrackingTouch(seekBar: SeekBar?) {
-                printMessage("onStartTrackingTouch")
-            }
-
-            override fun onStopTrackingTouch(seekBar: SeekBar?) {
-                printMessage("onStopTrackingTouch")
-            }
-        })
-
-        mSeekBar2.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
-            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-                changeLLFrame(mSeekBar1.progress, progress)
-            }
-
-            override fun onStartTrackingTouch(seekBar: SeekBar?) {
-                printMessage("onStartTrackingTouch")
-            }
-
-            override fun onStopTrackingTouch(seekBar: SeekBar?) {
-                printMessage("onStopTrackingTouch")
-            }
-        })
-
+//        mSeekBar1.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+//            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
+//                changeLLFrame(progress, mSeekBar2.progress)
+//            }
+//
+//            override fun onStartTrackingTouch(seekBar: SeekBar?) {
+//                printMessage("onStartTrackingTouch")
+//            }
+//
+//            override fun onStopTrackingTouch(seekBar: SeekBar?) {
+//                printMessage("onStopTrackingTouch")
+//            }
+//        })
+//
+//        mSeekBar2.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+//            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
+//                changeLLFrame(mSeekBar1.progress, progress)
+//            }
+//
+//            override fun onStartTrackingTouch(seekBar: SeekBar?) {
+//                printMessage("onStartTrackingTouch")
+//            }
+//
+//            override fun onStopTrackingTouch(seekBar: SeekBar?) {
+//                printMessage("onStopTrackingTouch")
+//            }
+//        })
+//
     }
-
-    private fun changeLLFrame(width: Int, height: Int) {
-        var temporal = mLLMeasure.layoutParams
-        temporal.width = width
-        temporal.height = height
-
-        mLLMeasure.layoutParams = temporal
-    }
+//
+//    private fun changeLLFrame(width: Int, height: Int) {
+//        var temporal = mLLMeasure.layoutParams
+//        temporal.width = width
+//        temporal.height = height
+//
+//        mLLMeasure.layoutParams = temporal
+//    }
 
 
 }
