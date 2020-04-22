@@ -5,28 +5,43 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Learn.LearnKotlinActivity"
-    android:orientation="vertical">
+    android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/mTVHello"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="1"
-        android:textSize="30sp"/>
+    <fragment
+        android:id="@+id/leftFrag"
+        android:name="com.example.arthurwang.helloworld.fragment.FragmentLeft"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"/>
 
-    <Button
-        android:id="@+id/mBtnReset"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="恢复"
-        android:layout_marginTop="10dp"/>
+    <FrameLayout
+        android:id="@+id/rightFrag"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"/>
 
-    <Button
-        android:id="@+id/mBtnClick"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="点我啊"
-        android:layout_marginTop="10dp"/>
+
+
+<!--    <TextView-->
+<!--        android:id="@+id/mTVHello"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="1"-->
+<!--        android:textSize="30sp"/>-->
+
+<!--    <Button-->
+<!--        android:id="@+id/mBtnReset"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="恢复"-->
+<!--        android:layout_marginTop="10dp"/>-->
+
+<!--    <Button-->
+<!--        android:id="@+id/mBtnClick"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="点我啊"-->
+<!--        android:layout_marginTop="10dp"/>-->
 
 <!--    <ImageView-->
 <!--        android:id="@+id/mImageView"-->
@@ -87,8 +102,8 @@
 <!--        app:text="美丽新世界"-->
 <!--        android:background="@color/c2"/>-->
 
-    <com.example.arthurwang.helloworld.Learn.RectView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+<!--    <com.example.arthurwang.helloworld.Learn.RectView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"/>-->
 
 </LinearLayout>

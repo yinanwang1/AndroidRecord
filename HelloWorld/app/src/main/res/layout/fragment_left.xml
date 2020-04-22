@@ -13,4 +13,9 @@
         android:layout_gravity="center_horizontal"
         android:text="Button"/>
 
+    <TextView
+        android:id="@+id/mTvTest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
 </LinearLayout>

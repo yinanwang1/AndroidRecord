@@ -11,11 +11,17 @@ import android.os.Bundle
 import android.view.View.LAYER_TYPE_HARDWARE
 import android.view.animation.*
 import android.widget.SeekBar
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import androidx.interpolator.view.animation.FastOutLinearInInterpolator
 import com.example.arthurwang.helloworld.R
+import com.example.arthurwang.helloworld.fragment.AnotherRightFragment
+import com.example.arthurwang.helloworld.fragment.RightFragment
 import com.socks.library.KLog
 import kotlinx.android.synthetic.main.activity_geocode_search.*
 import kotlinx.android.synthetic.main.activity_learn_kotlin.*
+import kotlinx.android.synthetic.main.fragment_left.*
+import kotlinx.android.synthetic.main.fragment_right.*
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
@@ -29,7 +35,7 @@ import java.util.concurrent.TimeUnit
 import kotlin.concurrent.thread
 import kotlin.random.Random
 
-class LearnKotlinActivity : Activity() {
+class LearnKotlinActivity : AppCompatActivity() {
 
 
     fun printMessage(message: String) {
@@ -40,10 +46,18 @@ class LearnKotlinActivity : Activity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_learn_kotlin)
 
-        mBtnReset.onClick {
-            val intent = Intent(this@LearnKotlinActivity, LearnKotlinActivity::class.java)
-            this@LearnKotlinActivity.startActivity(intent)
+        button.setOnClickListener {
+            replaceFragment(AnotherRightFragment())
+        }
 
+        replaceFragment(RightFragment())
+
+        mTvTest.text = "我可以从fragment中获取ID，这好申请啊"
+
+//        mBtnReset.onClick {
+//            val intent = Intent(this@LearnKotlinActivity, LearnKotlinActivity::class.java)
+//            this@LearnKotlinActivity.startActivity(intent)
+//
 //            val holder1 = PropertyValuesHolder.ofFloat("ScaleX", 1F)
 //            val holder2 = PropertyValuesHolder.ofFloat("ScaleY", 1F)
 //            val holder3 = PropertyValuesHolder.ofFloat("alpha", 1F)
@@ -58,9 +72,9 @@ class LearnKotlinActivity : Activity() {
 //            animatorSet.playSequentially(animator, animator1)
 //
 //            animatorSet.start()
-        }
-
-        mBtnClick.onClick {
+//        }
+//
+//        mBtnClick.onClick {
 //            val holder1 = PropertyValuesHolder.ofFloat("ScaleX", 0.1F)
 //            val holder2 = PropertyValuesHolder.ofFloat("ScaleY", 0.1F)
 //            val holder3 = PropertyValuesHolder.ofFloat("alpha", 0.1F)
@@ -75,8 +89,8 @@ class LearnKotlinActivity : Activity() {
 //            animatorSet.playSequentially(animator, animator1)
 //
 //            animatorSet.start()
-
-
+//
+//
 //            val colorMatrix = ColorMatrix()
 //            colorMatrix.setSaturation(0F)
 //
@@ -94,7 +108,7 @@ class LearnKotlinActivity : Activity() {
 //            val animator = ObjectAnimator.ofPropertyValuesHolder(mDView, holder)
 //            animator.duration = 5000
 //            animator.start()
-        }
+//        }
 
 //        mSeekBar1.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
 //            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
@@ -124,6 +138,13 @@ class LearnKotlinActivity : Activity() {
 //            }
 //        })
 //
+    }
+
+    private fun replaceFragment(fragment: Fragment) {
+        val fragmentManager = supportFragmentManager
+        val transaction = fragmentManager.beginTransaction()
+        transaction.replace(R.id.rightFrag, fragment)
+        transaction.commit()
     }
 //
 //    private fun changeLLFrame(width: Int, height: Int) {
