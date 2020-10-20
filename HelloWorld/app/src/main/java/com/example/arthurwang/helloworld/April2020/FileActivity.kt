@@ -20,11 +20,16 @@ class FileActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_file)
 
-//        save("我就是我，不一样的烟火呢呢呢")
+        /*
+        *
+        * //
+        *
+        * */
 
-//        load()
+//        checkAppPermissions()
 
-        checkAppPermissions()
+        val price = """$9.99"""
+        KLog.e("wyn", "price is $price")
 
 
 
@@ -156,3 +161,4 @@ class FileActivity : AppCompatActivity() {
         }
     }
 }
+
