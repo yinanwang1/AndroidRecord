@@ -1,20 +1,39 @@
 package com.example.arthurwang.helloworld.April2020
 
 import android.Manifest
+import android.animation.ObjectAnimator
 import android.content.Context
-import android.os.Build
-import android.os.Bundle
-import android.os.Environment
+import android.content.Intent
+import android.net.Uri
+import android.nfc.Tag
+import android.os.*
+import android.preference.PreferenceManager
+import android.view.View
+import android.view.ViewGroup
+import android.view.textservice.SpellCheckerInfo
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.arthurwang.helloworld.R
 import com.mylhyl.acp.Acp
 import com.mylhyl.acp.AcpListener
 import com.mylhyl.acp.AcpOptions
 import com.socks.library.KLog
+import kotlinx.android.synthetic.main.activity_file.*
+import kotlinx.android.synthetic.main.content_list_item.*
+import org.jetbrains.anko.commit
 import java.io.*
 import java.lang.Exception
+import java.text.DateFormat
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.ArrayList
+import kotlin.math.roundToInt
 
 class FileActivity : AppCompatActivity() {
+
+    val TAG = "File Activity"
+    var mHandlerThread: MyHandlerThread? = null
+    var dialogFragment = MyDialogFragment()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,8 +47,7 @@ class FileActivity : AppCompatActivity() {
 
 //        checkAppPermissions()
 
-        val price = """$9.99"""
-        KLog.e("wyn", "price is $price")
+        supportFragmentManager.beginTransaction().replace(R.id.fg_settings, PrefFragment()).commit()
 
 
 
@@ -159,6 +177,34 @@ class FileActivity : AppCompatActivity() {
         } catch (e: IOException) {
             e.printStackTrace()
         }
+    }
+
+
+}
+
+
+class MyHandlerThread(name: String): Thread(name) {
+    val TAG = "MyHT"
+    var mhandler: Handler? = null
+
+    override fun run() {
+        KLog.e(TAG, "进入Thread的run")
+        Looper.prepare()
+        val looper = Looper.myLooper()
+
+        if (null != looper) {
+            mhandler = object : Handler(looper) {
+                override fun handleMessage(msg: Message) {
+                    KLog.e(TAG, "获得了message")
+                    KLog.e(TAG, "message is ${msg.what}")
+                    super.handleMessage(msg)
+
+                    KLog.e(TAG, "当前线程 ${currentThread()}")
+                }
+            }
+        }
+
+        Looper.loop()
     }
 }
 
