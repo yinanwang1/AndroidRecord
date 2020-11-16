@@ -1,17 +1,14 @@
 package com.example.arthurwang.helloworld.April2020
 
 import android.Manifest
-import android.animation.ObjectAnimator
 import android.content.Context
-import android.content.Intent
-import android.net.Uri
-import android.nfc.Tag
+import android.content.pm.PackageManager
+import android.content.res.Configuration
 import android.os.*
-import android.preference.PreferenceManager
-import android.view.View
-import android.view.ViewGroup
-import android.view.textservice.SpellCheckerInfo
-import android.widget.TextView
+import android.text.SpannableString
+import android.text.Spanned
+import android.text.style.AbsoluteSizeSpan
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.example.arthurwang.helloworld.R
 import com.mylhyl.acp.Acp
@@ -19,38 +16,50 @@ import com.mylhyl.acp.AcpListener
 import com.mylhyl.acp.AcpOptions
 import com.socks.library.KLog
 import kotlinx.android.synthetic.main.activity_file.*
-import kotlinx.android.synthetic.main.content_list_item.*
-import org.jetbrains.anko.commit
 import java.io.*
-import java.lang.Exception
-import java.text.DateFormat
-import java.text.SimpleDateFormat
-import java.util.*
-import kotlin.collections.ArrayList
-import kotlin.math.roundToInt
 
 class FileActivity : AppCompatActivity() {
 
-    val TAG = "File Activity"
-    var mHandlerThread: MyHandlerThread? = null
-    var dialogFragment = MyDialogFragment()
 
+
+    @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_file)
 
-        /*
-        *
-        * //
-        *
-        * */
+
 
 //        checkAppPermissions()
 
-        supportFragmentManager.beginTransaction().replace(R.id.fg_settings, PrefFragment()).commit()
+
+        btn_first.setOnClickListener {
+            val phone = SpannableString("就是变啊变")
+            phone.setSpan(AbsoluteSizeSpan(20, true), 0, phone.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+            et_phone.hint = SpannableString(phone)
+        }
+
+        val info = packageManager.getActivityInfo(componentName, PackageManager.GET_META_DATA)
+        val msg = info.metaData.getString("myMsg")
+
+        tv_text_view.text = msg
+        tv_text_view.setTextColor(resources.getColor(R.color.c1, theme))
+        tv_text_view.textSize = 30.0f
 
 
 
+
+
+
+
+
+
+
+    }
+
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+
+        KLog.e("wyn", "onConfigurationChanged")
     }
 
     /**

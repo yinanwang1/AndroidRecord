@@ -60,5 +60,6 @@
     <string name="title_activity_jni">JNIActivity</string>
     <string name="appwidget_text">EXAMPLE</string>
     <string name="add_widget">Add widget</string>
+    <string name="data_percent">整数型：%2$d, 浮点型: %1$.3f, 字符串：%3$s</string>
 
 </resources>

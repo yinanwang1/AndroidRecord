@@ -78,7 +78,11 @@
             <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
             <!-- </intent-filter> -->
         </activity>
-        <activity android:name=".April2020.FileActivity">
+        <activity android:name=".April2020.FileActivity"
+            android:label="我是文件"
+            android:icon="@drawable/bg">
+
+            <meta-data android:name="myMsg" android:value="hello my activity" />
 
              <intent-filter>
              <action android:name="android.intent.action.MAIN" />

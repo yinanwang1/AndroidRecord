@@ -8,28 +8,40 @@
     android:orientation="vertical">
 
     <TextView
+        android:id="@+id/tv_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_x="100dp"
         android:layout_y="100dp"
-        android:text="我及时我"/>
+        android:text="@string/data_percent"/>
 
     <Button
         android:id="@+id/btn_first"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="我是第一个"/>
+        android:background="@drawable/btn_selector"/>
 
     <Button
         android:id="@+id/btn_second"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="我是第二个"/>
+        android:text="我是第二个"
+        android:gravity="center"
+        android:background="@drawable/bitmap_layer_list"/>
 
-    <FrameLayout
-        android:id="@+id/fg_settings"
+    <ImageView
+        android:id="@+id/iv_clip"
+        android:layout_width="100dp"
+        android:layout_height="100dp"/>
+
+    <EditText
+        android:id="@+id/et_phone"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="100dp"
+        android:hint="我就是我"
+        android:textSize="30sp"/>
+
+
 
 
 </LinearLayout>
