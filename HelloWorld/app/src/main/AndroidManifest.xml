@@ -40,13 +40,24 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
-        <activity android:name=".Oct2020.LearnActivity">
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
-<!--                <action android:name="android.intent.action.VIEW" />-->
+        <activity android:name=".April2020.LearnStringActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.VIEW" />
 
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Oct2020.LearnActivity">
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+            <!-- <action android:name="android.intent.action.VIEW" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
         <activity android:name=".April2020.MainViewModelActivity">
 
@@ -78,19 +89,21 @@
             <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
             <!-- </intent-filter> -->
         </activity>
-        <activity android:name=".April2020.FileActivity"
-            android:label="我是文件"
-            android:icon="@drawable/bg">
+        <activity
+            android:name=".April2020.FileActivity"
+            android:icon="@drawable/bg"
+            android:label="我是文件">
+            <meta-data
+                android:name="myMsg"
+                android:value="hello my activity" />
 
-            <meta-data android:name="myMsg" android:value="hello my activity" />
-
-             <intent-filter>
-             <action android:name="android.intent.action.MAIN" />
-             <action android:name="android.intent.action.VIEW" />
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+            <!-- <action android:name="android.intent.action.VIEW" /> -->
 
 
-             <category android:name="android.intent.category.LAUNCHER" />
-             </intent-filter>
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
         <activity android:name=".Learn.AnnotationActivity" />
         <activity android:name=".Learn.LearnKotlinActivity">
