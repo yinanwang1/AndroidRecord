@@ -11,7 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.arthurwang.helloworld.R;
-import com.socks.library.KLog;
+import com.example.arthurwang.helloworld.base.KLog.KLog;
 
 public class Activity1Activity extends Activity {
 
@@ -69,8 +69,6 @@ public class Activity1Activity extends Activity {
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                KLog.e("editText2.getText() is " + editText2.getText());
-
                 Intent intent = new Intent();
                 intent.putExtra(ext_name, editText2.getText().toString());
                 intent.setClass(Activity1Activity.this, Activity2Activity.class);
@@ -80,9 +78,6 @@ public class Activity1Activity extends Activity {
         });
 
         change(str, ch);
-
-        KLog.e("测试下哈：" + str + " and " + ch[0] + ch[1] + ch[2]);
-
     }
 
     @Override

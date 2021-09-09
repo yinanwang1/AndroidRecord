@@ -9,7 +9,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.arthurwang.helloworld.R;
-import com.socks.library.KLog;
+import com.example.arthurwang.helloworld.base.KLog.KLog;
 
 public class Activity2Activity extends Activity {
 
