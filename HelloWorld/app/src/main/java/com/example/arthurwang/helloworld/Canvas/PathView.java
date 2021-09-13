@@ -17,8 +17,7 @@ import android.graphics.Shader;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
 
-import com.example.arthurwang.helloworld.Canvas.CommonPath;
-import com.example.blelogmanager.R;
+import com.example.arthurwang.helloworld.R;
 
 /**
  * Created by arthurwang on 2021/8/24

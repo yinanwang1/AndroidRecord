@@ -20,7 +20,7 @@ public class HelpDraw {
      */
     public static Point getWinSize(Context context) {
         Point point = new Point();
-        com.example.blelogmanager.Canvas.Utils.loadWinSize(context, point);
+        Utils.loadWinSize(context, point);
         return point;
     }
 
@@ -55,7 +55,7 @@ public class HelpDraw {
         paint.setStyle(Paint.Style.STROKE);
         //设置虚线效果new float[]{可见长度, 不可见长度},偏移值
         paint.setPathEffect(new DashPathEffect(new float[]{10, 5}, 0));
-        recording.drawPath(com.example.blelogmanager.Canvas.HelpPath.gridPath(50, winSize), paint);
+        recording.drawPath(HelpPath.gridPath(50, winSize), paint);
         return picture;
 
     }
@@ -78,7 +78,7 @@ public class HelpDraw {
         paint.setPathEffect(null);
 
         //绘制直线
-        recording.drawPath(com.example.blelogmanager.Canvas.HelpPath.cooPath(coo, winSize), paint);
+        recording.drawPath(HelpPath.cooPath(coo, winSize), paint);
         //左箭头
         recording.drawLine(winSize.x, coo.y, winSize.x - 40, coo.y - 20, paint);
         recording.drawLine(winSize.x, coo.y, winSize.x - 40, coo.y + 20, paint);

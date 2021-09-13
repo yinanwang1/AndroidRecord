@@ -12,9 +12,6 @@ import android.view.View;
 
 import androidx.annotation.Nullable;
 
-import com.example.arthurwang.helloworld.Canvas.ColUtils;
-import com.example.arthurwang.helloworld.Canvas.HelpDraw;
-
 import java.util.Calendar;
 
 /**

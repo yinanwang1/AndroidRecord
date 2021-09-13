@@ -10,7 +10,8 @@ import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.widget.ProgressBar;
 
-import com.example.blelogmanager.R;
+import com.example.arthurwang.helloworld.R;
+
 
 /**
  * Created by arthurwang on 2021/9/8

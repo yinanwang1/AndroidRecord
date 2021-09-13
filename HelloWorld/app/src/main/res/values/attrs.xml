@@ -5,4 +5,21 @@
     <declare-styleable name="AlphaImageView">
         <attr name="duration"></attr>
     </declare-styleable>
+
+    <declare-styleable name="PathView">
+        <attr name="win_width" format="dimension"/>
+        <attr name="win_height" format="dimension"/>
+    </declare-styleable>
+
+    <declare-styleable name="TolyProgressBar">
+        <attr name="z_pb_bg_color" format="color"/>
+        <attr name="z_pb_bg_height" format="dimension" />
+        <attr name="z_pb_on_color" format="color" />
+        <attr name="z_pb_on_height" format="dimension" />
+
+        <attr name="z_pb_txt_color" format="color" />
+        <attr name="z_pb_txt_size" format="dimension" />
+        <attr name="z_pb_txt_offset" format="dimension" />
+        <attr name="z_pb_txt_gone" format="boolean" />
+    </declare-styleable>
 </resources>
