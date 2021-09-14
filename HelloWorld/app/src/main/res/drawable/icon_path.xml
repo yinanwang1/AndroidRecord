@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="100"
+    android:viewportHeight="100">
+
+    <group android:name="container"
+        android:translateX="8"
+        android:pivotX="50"
+        android:pivotY="50"
+        android:scaleX="0.8"
+        android:scaleY="0.8">
+
+        <path
+            android:name="alpha_anim"
+            android:pathData="@string/path_from"
+            android:strokeWidth="8"
+            android:strokeColor="#000"/>
+
+    </group>
+
+</vector>
