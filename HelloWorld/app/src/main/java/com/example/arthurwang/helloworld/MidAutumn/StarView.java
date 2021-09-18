@@ -43,7 +43,7 @@ public class StarView extends View {
         path = CommonPath.nStarPath(10, 10, 4);
 
         valueAnimator = ValueAnimator.ofFloat(0, 1);
-        valueAnimator.setDuration(1000);
+        valueAnimator.setDuration((int)(2000 * random.nextFloat()));
         valueAnimator.setRepeatCount(ValueAnimator.INFINITE);
         valueAnimator.setRepeatMode(ValueAnimator.REVERSE);
         valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
@@ -62,7 +62,7 @@ public class StarView extends View {
             public void run() {
                 valueAnimator.start();
             }
-        }, (int)(random.nextFloat() * 1000));
+        }, (int)(random.nextFloat() * 50000));
     }
 
     @Override

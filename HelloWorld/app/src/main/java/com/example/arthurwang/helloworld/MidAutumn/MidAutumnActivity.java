@@ -11,7 +11,6 @@ import com.example.arthurwang.helloworld.base.KLog.KLog;
 import java.util.Random;
 
 public class MidAutumnActivity extends Activity {
-    private int padding = 5;
     private Random random = new Random(System.currentTimeMillis());
 
     private FrameLayout fl_stars;
@@ -40,27 +39,11 @@ public class MidAutumnActivity extends Activity {
         KLog.e("wyn", "width is " + height + " height is " + width);
         RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(20, 20);
 
-        int y = (int) (random.nextFloat() * padding);
-        while (y < height) {
-            int x = (int) (random.nextFloat() * padding);
-            while (x < width) {
-                params.leftMargin = x;
-                params.topMargin = y;
+        for (int i = 0; i < 500; i++) {
+            params.leftMargin = (int) (random.nextFloat() * width);
+            params.topMargin = (int) (random.nextFloat() * height);
 
-                fl_stars.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        fl_stars.addView(new StarView(MidAutumnActivity.this), params);
-                    }
-                }, (int)(random.nextFloat() * 1000));
-
-
-
-                x += (int) (random.nextFloat() * padding);
-            }
-
-            y += (int) (random.nextFloat() * padding);
-            padding += 5;
+            fl_stars.addView(new StarView(MidAutumnActivity.this), params);
         }
     }
 }
