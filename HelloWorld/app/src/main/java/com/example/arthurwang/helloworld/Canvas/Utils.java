@@ -3,6 +3,7 @@ package com.example.arthurwang.helloworld.Canvas;
 import android.content.Context;
 import android.graphics.Point;
 import android.util.DisplayMetrics;
+import android.util.TypedValue;
 import android.view.WindowManager;
 
 public class Utils {
@@ -20,6 +21,17 @@ public class Utils {
         }
         winSize.x = outMetrics.widthPixels;
         winSize.y = outMetrics.heightPixels;
+    }
+
+    /**
+     * 获取dp值
+     * @param context
+     * @param dp
+     * @return
+     */
+    public static int dp(Context context, int dp) {
+        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
+                dp, context.getResources().getDisplayMetrics());
     }
 
 }

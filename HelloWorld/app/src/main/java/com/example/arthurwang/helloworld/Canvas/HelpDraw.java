@@ -38,6 +38,17 @@ public class HelpDraw {
         return getCoo(coo, getWinSize(context));
     }
 
+    public static Paint getHelpPaint(int color) {
+        Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        paint.setColor(color);
+
+        return paint;
+    }
+
+    public static void draw(Canvas canvas, Picture grid, Picture coo) {
+        canvas.drawPicture(grid);
+        canvas.drawPicture(coo);
+    }
 
     /**
      * 绘制网格

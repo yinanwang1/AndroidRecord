@@ -5,7 +5,7 @@ import android.graphics.Path;
 /**
  * Created by arthurwang on 2021/9/7
  */
-class CommonPath {
+public class CommonPath {
     /**
      * n角星路径
      *

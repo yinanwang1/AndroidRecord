@@ -7,19 +7,9 @@
     tools:context=".Animator.AnimatorActivity"
     android:orientation="vertical">
 
-    <View
-        android:id="@+id/id_btn_go"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="32dp"
-        android:background="#3ED7FA" />
-
-    <ImageView
-        android:id="@+id/id_iv"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:src="@drawable/anima_path"/>
+    <com.example.arthurwang.helloworld.Canvas.FunctionView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 
 
