@@ -7,7 +7,6 @@
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- 在sdcard中创建/删除文件的权限 -->
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> <!-- 使用音场效果必要的权限 -->
     <uses-permission android:name="android.permission.RECORD_AUDIO" /> <!-- 定位服务 -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> <!-- 高德地图 -->
@@ -35,7 +34,8 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".MidAutumn.MidAutumnActivity"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/AppTheme.NoActionBarWhite">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -114,7 +114,8 @@
             android:name=".May.NFCActivity"
             android:alwaysRetainTaskState="true"
             android:label="NFC调试"
-            android:launchMode="singleInstance">
+            android:launchMode="singleInstance"
+            android:exported="true">
 
             <!-- <intent-filter> -->
             <!-- <action android:name="android.intent.action.MAIN" /> -->

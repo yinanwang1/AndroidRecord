@@ -3,6 +3,7 @@ package com.example.arthurwang.helloworld.MidAutumn;
 import android.app.Activity;
 import android.os.Bundle;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import com.example.arthurwang.helloworld.R;
@@ -14,13 +15,16 @@ public class MidAutumnActivity extends Activity {
     private Random random = new Random(System.currentTimeMillis());
 
     private FrameLayout fl_stars;
+    private LinearLayout ll_my_test;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mid_autumn);
 
+        ll_my_test = findViewById(R.id.ll_my_test);
         fl_stars = findViewById(R.id.fl_stars);
+
 
 
         fl_stars.post(new Runnable() {
@@ -29,6 +33,13 @@ public class MidAutumnActivity extends Activity {
                 drawStars();
             }
         });
+
+//        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+//        ll_my_test.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
+//        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
+//        getWindow().addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+//        getWindow().clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+//        getWindow().setStatusBarColor(getResources().getColor(android.R.color.transparent));
 
     }
 
